@@ -171,8 +171,8 @@
   --sidebar-border: oklch(0.9311 0.0448 343.3135);
   --sidebar-ring: oklch(0.6002 0.2414 0.1348);
   --font-sans: Poppins, sans-serif;
-  --font-serif: Playfair Display, serif;
-  --font-mono: Space Mono, monospace;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "Space Mono", monospace;
   --radius: 0.5rem;
   --shadow-x: 0px;
   --shadow-y: 3px;
@@ -226,8 +226,8 @@
   --sidebar-border: oklch(0.3280 0.1202 313.5393);
   --sidebar-ring: oklch(0.7543 0.2319 332.0212);
   --font-sans: Quicksand, sans-serif;
-  --font-serif: Playfair Display, serif;
-  --font-mono: Space Mono, monospace;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "Space Mono", monospace;
   --radius: 0.5rem;
   --shadow-x: 0px;
   --shadow-y: 3px;

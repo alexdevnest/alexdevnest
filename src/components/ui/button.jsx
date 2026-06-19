@@ -57,6 +57,7 @@ function Button({
       data-slot="button"
       data-variant={variant}
       data-size={size}
+      type={!asChild ? (props.type ?? "button") : undefined}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props} />
   );
