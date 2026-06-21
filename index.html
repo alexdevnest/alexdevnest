@@ -62,6 +62,38 @@
     content="summary_large_image"
   />
 
+  <script>
+    (() => {
+      const storageKey = "theme"
+
+      const getTheme = () => {
+        const savedTheme = localStorage.getItem(storageKey)
+
+        if (savedTheme === "dark" || savedTheme === "light") {
+          return savedTheme
+        }
+
+        if (window.matchMedia) {
+          if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark"
+          }
+
+          if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+            return "light"
+          }
+        }
+
+        return "dark"
+      }
+
+      const theme = getTheme()
+      const root = document.documentElement
+
+      root.classList.toggle("dark", theme === "dark")
+      root.style.colorScheme = theme
+    })()
+  </script>
+
 </head>
 <body>
 

@@ -117,19 +117,21 @@ export const AnimatedThemeToggler = ({
   useEffect(() => {
     if (isControlled) return
 
+    const root = document.documentElement
+
     const updateTheme = () => {
-      setInternalIsDark(document.documentElement.classList.contains("dark"))
+      setInternalIsDark(root.classList.contains("dark"))
     }
 
     updateTheme()
 
     const observer = new MutationObserver(updateTheme)
-    observer.observe(document.documentElement, {
+    observer.observe(root, {
       attributes: true,
       attributeFilter: ["class"],
     })
 
-    return () => observer.disconnect();
+    return () => observer.disconnect()
   }, [isControlled])
 
   const toggleTheme = useCallback(() => {
@@ -154,14 +156,17 @@ export const AnimatedThemeToggler = ({
 
     const applyTheme = () => {
       const newTheme = !isDark
-      // Always toggle the class synchronously so the View Transitions API
-      // snapshots the new theme inside the startViewTransition callback.
-      document.documentElement.classList.toggle("dark")
+      const root = document.documentElement
+      const nextTheme = newTheme ? "dark" : "light"
+
+      root.classList.toggle("dark", newTheme)
+      root.style.colorScheme = nextTheme
+
       if (isControlled) {
-        onThemeChange?.(newTheme ? "dark" : "light")
+        onThemeChange?.(nextTheme)
       } else {
         setInternalIsDark(newTheme)
-        localStorage.setItem("theme", newTheme ? "dark" : "light")
+        localStorage.setItem("theme", nextTheme)
       }
     }
 
@@ -218,7 +223,7 @@ export const AnimatedThemeToggler = ({
       onClick={toggleTheme}
       className={`
         ${cn(className)}
-        rounded-full
+        rounded-full cursor-pointer
       `}
       {...props}>
       {isDark ? <Sun /> : <Moon />}
