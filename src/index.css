@@ -101,7 +101,7 @@
   }
 
   .footer-links {
-    @apply hover:text-muted-foreground hover:scale-105;
+    @apply transition-transform hover:text-muted-foreground hover:scale-105;
   }
 
 }

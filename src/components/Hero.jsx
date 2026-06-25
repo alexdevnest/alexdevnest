@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useId, useState, useEffect } from "react";
 import { DottedMap } from "@ui/dotted-map";
 import { TypingAnimation } from "@ui/typing-animation";
 import { Button } from "@ui/button";
@@ -11,6 +11,7 @@ import {
 
 export default function Hero () {
   const id = useId()
+  const [dotRadius, setDotRadius] = useState(0.5)
 
 
   const markers = [
@@ -24,16 +25,23 @@ export default function Hero () {
   const markerData = markers[0]
 
   // Colorscheme
-  const pillFill = cardColor
-  const textFill = chart5Color
+  const pillFill = cardColor()
+  const textFill = chart5Color()
 
   const fontFamily = fontMono
 
-  let dotRadius;
+  useEffect(() => {
+    function updateDotRadius() {
+      setDotRadius(window.innerWidth <= 1130 ? 0.4 : 0.5)
+    }
 
-  if (window.innerWidth <= 1130)
-    dotRadius = .4;
-  else dotRadius = .5;
+    updateDotRadius()
+    window.addEventListener("resize", updateDotRadius)
+
+    return () => {
+      window.removeEventListener("resize", updateDotRadius)
+    }
+  }, [])
 
 
   return (
@@ -42,7 +50,7 @@ export default function Hero () {
         <h1 className="hero-title">Hi, I'm Alex.</h1>
         <TypingAnimation
           words={[
-            "Full-stack Developer:", "Backend Developer,", "Frontend Developer,", "AWS Certified Cloud Practicioner."
+            "Full-stack Developer:", "Backend Developer,", "Frontend Developer,", "AWS Certified Cloud Practitioner."
           ]}
           className="hero-animated-text"
           loop
@@ -63,15 +71,14 @@ export default function Hero () {
 
         </p>
 
-        <Button
-          size="lg"
-          className="bg-primary mt-3 max-w-25"
-        >
-          <a
-            href="#contact"
-            className="text-primary-foreground font-bold h-full w-full p-2"
-          >Contact</a>
-        </Button>
+        <a href="#contact">
+          <Button
+            size="lg"
+            className="transition-all duration-500 mt-3 p-6 font-bold hover:text-secondary-foreground"
+          >
+            Contact
+          </Button>
+        </a>
       </div>
 
       <div className="map-container">
@@ -79,9 +86,9 @@ export default function Hero () {
           markers={markers}
           pulse
           className="map"
-          dotColor={accentColor}
+          dotColor={accentColor()}
           dotRadius={dotRadius}
-          markerColor={ringColor}
+          markerColor={ringColor()}
           renderMarkerOverlay={({ x, y, r, index }) => {
           const { countryCode, label } = markerData.overlay
           const href = `https://flagcdn.com/w80/${countryCode}.webp`

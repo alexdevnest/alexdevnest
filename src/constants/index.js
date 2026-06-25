@@ -1,76 +1,61 @@
-const root = document.documentElement;
+const SECTIONS_IDS = [
+  "hero",
+  "about",
+  "services",
+  "projects",
+  "certifications",
+  "contact",
+  "footer",
+]
+
+function getThemeVar(variableName) {
+  if (typeof document === "undefined") return ""
+
+  return getComputedStyle(document.documentElement)
+    .getPropertyValue(variableName)
+    .trim()
+}
+
+const backgroundColor = () => getThemeVar("--background")
+const accentColor = () => getThemeVar("--accent")
+const foregroundColor = () => getThemeVar("--foreground")
+const primaryColor = () => getThemeVar("--primary")
+const primaryForegroundColor = () => getThemeVar("--primary-foreground")
+const secondaryColor = () => getThemeVar("--secondary")
+const secondaryForegroundColor = () => getThemeVar("--secondary-foreground")
+const mutedColor = () => getThemeVar("--muted")
+const mutedForegroundColor = () => getThemeVar("--muted-foreground")
+const cardColor = () => getThemeVar("--card")
+const cardForegroundColor = () => getThemeVar("--card-foreground")
+const ringColor = () => getThemeVar("--ring")
+const chartColor = () => getThemeVar("--chart-4")
+const chart5Color = () => getThemeVar("--chart-5")
 
 
-const backgroundColor = getComputedStyle(root)
-  .getPropertyValue('--background')
-  .trim()
+const fontSans =
+  typeof document === "undefined"
+    ? ""
+    : getComputedStyle(document.documentElement)
+        .getPropertyValue("--font-sans")
+        .trim()
 
-const accentColor = getComputedStyle(root)
-  .getPropertyValue('--accent')
-  .trim()
+const fontSerif =
+  typeof document === "undefined"
+    ? ""
+    : getComputedStyle(document.documentElement)
+        .getPropertyValue("--font-serif")
+        .trim()
 
-const foregroundColor = getComputedStyle(root)
-  .getPropertyValue('--foreground')
-  .trim()
-
-const primaryColor = getComputedStyle(root)
-  .getPropertyValue('--primary')
-  .trim()
-
-const primaryForegroundColor = getComputedStyle(root)
-  .getPropertyValue('--primary')
-  .trim()
-
-const secondaryColor = getComputedStyle(root)
-  .getPropertyValue('--secondary')
-  .trim()
-
-const secondaryForegroundColor = getComputedStyle(root)
-  .getPropertyValue('--secondary')
-  .trim()
-
-const mutedColor = getComputedStyle(root)
-  .getPropertyValue('--muted')
-  .trim()
-
-const mutedForegroundColor = getComputedStyle(root)
-  .getPropertyValue('--muted-foreground')
-  .trim()
-
-const cardColor = getComputedStyle(root)
-  .getPropertyValue('--card')
-  .trim()
-
-const cardForegroundColor = getComputedStyle(root)
-  .getPropertyValue('--card-foreground')
-  .trim()
-
-const ringColor = getComputedStyle(root)
-  .getPropertyValue('--ring')
-  .trim()
-
-const fontSans = getComputedStyle(root)
-  .getPropertyValue('--font-sans')
-  .trim()
-
-const fontSerif = getComputedStyle(root)
-  .getPropertyValue('--font-serif')
-  .trim()
-
-const fontMono = getComputedStyle(root)
-  .getPropertyValue('--font-mono')
-  .trim()
-
-const chartColor = getComputedStyle(root)
-  .getPropertyValue('--chart-4')
-  .trim()
-
-const chart5Color = getComputedStyle(root)
-  .getPropertyValue('--chart-5')
-  .trim()
+const fontMono =
+  typeof document === "undefined"
+    ? ""
+    : getComputedStyle(document.documentElement)
+        .getPropertyValue("--font-mono")
+        .trim()
 
 
 export {
+  SECTIONS_IDS,
   backgroundColor,
   accentColor,
   foregroundColor,
