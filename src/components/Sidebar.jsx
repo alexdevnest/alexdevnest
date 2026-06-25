@@ -13,7 +13,7 @@ export default function Sidebar ({ activeSection }) {
 
   return (
     <aside id="aside" aria-label="Section navigation">
-      <div className="h-18 flex items-center justify-center">
+      <div id="sidebar-ico">
         <Button
           asChild
           variant="outline"

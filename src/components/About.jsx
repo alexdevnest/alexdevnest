@@ -1,7 +1,14 @@
+import SectionIntro from "./SectionIntro";
+
+
 export default function About () {
   return (
     <section className="page-section" id="about">
-      About
+      <SectionIntro title="About" />
+
+      <section className="about section">
+        About
+      </section>
     </section>
   );
 }
