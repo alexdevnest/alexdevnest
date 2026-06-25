@@ -61,15 +61,23 @@
   }
 
   #sidebar-ico {
-    @apply min-h-14 flex items-center justify-center;
+    @apply h-18 flex items-center justify-center;
   }
 
   .page-section {
     @apply min-h-[calc(100vh-72px)] scroll-mt-32 max-[470px]:mb-6;
   }
 
+  .section {
+    @apply flex;
+  }
+
   #hero {
     @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6;
+  }
+
+  #section-intro {
+    @apply flex items-center justify-center gap-2 font-extrabold min-[560px]:text-4xl text-3xl mt-0 mb-3;
   }
 
   .hero {
@@ -100,8 +108,32 @@
     @apply mt-3 text-foreground dark:text-foreground/65 min-[450px]:text-[1.2rem];
   }
 
+  .about {
+    @apply ;
+  }
+
+  .services {
+    @apply ;
+  }
+
+  .projects-highlights {
+    @apply ;
+  }
+
+  .certifications {
+    @apply ;
+  }
+
+  .contact {
+    @apply ;
+  }
+
+  .footer-text {
+    @apply max-[320px]:text-xs font-mono max-[283px]:text-[.6rem];
+  }
+
   .footer-links {
-    @apply transition-transform duration-300 hover:text-muted-foreground hover:scale-105;
+    @apply transition-transform duration-300 hover:text-muted-foreground hover:scale-105 max-[320px]:text-[10px];
   }
 
 }
@@ -226,7 +258,7 @@
 /* Custom Tweakcn Theme/s */
 
 /* Quantum rose theme */
-/* :root {
+:root {
   --background: oklch(0.9692 0.0192 343.9344);
   --foreground: oklch(0.4426 0.1653 352.3762);
   --card: oklch(0.9837 0.0107 339.3288);
@@ -394,7 +426,7 @@
     opacity: 0;
     }
   }
-} */
+}
 
 /* Cyberpunk theme */
 /* 
@@ -1384,7 +1416,7 @@
 
 /* Looks Good #1 */
 /* Amethyst haze Theme */
-
+/* 
 :root {
   --background: oklch(0.9777 0.0041 301.4256);
   --foreground: oklch(0.3651 0.0325 287.0807);
@@ -1544,7 +1576,7 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
-}
+} */
 
 
 ::view-transition-old(root), ::view-transition-new(root) {

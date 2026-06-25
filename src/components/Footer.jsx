@@ -5,7 +5,7 @@ export default function Footer () {
 
   return (
     <footer id="footer">
-      <p className="max-[320px]:text-xs">
+      <p className="footer-text">
         &copy;{`${ year } `}
         All rights reserved.
       </p>
