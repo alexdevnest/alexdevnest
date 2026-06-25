@@ -1,16 +1,23 @@
+import { Link } from "react-router-dom";
+
 export default function Footer () {
   const year = new Date().getFullYear()
 
   return (
-    <footer id="_end">
-      <p>
-        &copy; {`${ year } `}
+    <footer id="footer">
+      <p className="max-[320px]:text-xs">
+        &copy;{`${ year } `}
         All rights reserved.
       </p>
-      <div>
-        <a href="">Privacy</a>
-        <a href="">Legal Notice</a>
-      </div>
+
+      <ul>
+        <li className="footer-links">
+          <Link to="/privacy">Privacy</Link>
+        </li>
+        <li className="footer-links">
+          <Link to="/legal-notice">Legal Notice</Link>
+        </li>
+      </ul>
     </footer>
   );
 }
