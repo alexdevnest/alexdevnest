@@ -10,7 +10,7 @@ export default function Navbar () {
     <header id="header">
       <section className="flex items-center justify-between h-full max-[280px]:gap-1">
         <div className="flex items-center gap-3 max-[297px]:gap-1">
-          <Tooltips content="LinkedIn" side="left">
+          <Tooltips content="View my LinkedIn Profile">
             <a
               href="https://www.linkedin.com/in/alex-kimari-80096027a/"
               target="_blank"
@@ -20,7 +20,7 @@ export default function Navbar () {
             </a>
           </Tooltips>
           
-          <Tooltips content="Github">
+          <Tooltips content="View my Github">
             <a
               href="https://github.com/AlexkLearn"
               target="_blank"
@@ -30,7 +30,7 @@ export default function Navbar () {
             </a>
           </Tooltips>
 
-          <Tooltips content="Email" side="right">
+          <Tooltips content="Email Me" side="right">
             <a href="mailto:officialalex236@gmail.com">
               <FiMail className="icons-sl" size={20} />
             </a>
@@ -42,7 +42,7 @@ export default function Navbar () {
               <Button
                 asChild
                 variant="outline"
-                className="icons-s font-bold text-[1.1rem] p-3 tracking-[.11em]"
+                className="icons-s font-bold text-[1.1rem] p-3 tracking-[.11em] transition-all duration-800"
                 aria-label="Open CV"
               >
                 <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>

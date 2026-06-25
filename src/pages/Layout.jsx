@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import Navbar from "@components/Navbar";
 import Sidebar from "@components/Sidebar";
@@ -8,7 +9,7 @@ export default function Layout ({ children }) {
   const [ activeSection, setActiveSection ] = useState("hero");
 
   const sectionIds = [
-    "about", "services", "projects", "certifications", "contact", "_end"
+    "hero","about", "services", "projects", "certifications", "contact", "footer"
   ]
 
   useEffect(() => {
