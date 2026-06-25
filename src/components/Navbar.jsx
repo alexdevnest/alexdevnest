@@ -14,6 +14,7 @@ export default function Navbar () {
             <a
               href="https://www.linkedin.com/in/alex-kimari-80096027a/"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <FaLinkedin className="icons-sl" size={20} />
             </a>
@@ -21,8 +22,9 @@ export default function Navbar () {
           
           <Tooltips content="Github">
             <a
-              href="https://github.com/alexdevnest/alexdevnest"
+              href="https://github.com/AlexkLearn"
               target="_blank"
+              rel="noopener noreferrer"
             >
               <FaGithub className="icons-sl" size={20} />
             </a>
@@ -36,14 +38,16 @@ export default function Navbar () {
         </div>
 
         <div className="">
-            <a href="">
+            <Tooltips content="Open my CV" side="left">
               <Button
+                asChild
                 variant="outline"
                 className="icons-s font-bold text-[1.1rem] p-3 tracking-[.11em]"
+                aria-label="Open CV"
               >
-                CV
+                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
               </Button>
-            </a>
+            </Tooltips>
           <ThemeToggle />
         </div>
       </section>

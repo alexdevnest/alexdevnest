@@ -6,7 +6,7 @@ import {
 export default function Tooltips ({ children, content, side }) {
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         { children }
       </TooltipTrigger>
       <TooltipContent side={side}>

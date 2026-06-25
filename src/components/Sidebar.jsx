@@ -15,13 +15,17 @@ export default function Sidebar ({ activeSection }) {
     <aside id="aside" aria-label="Section navigation">
       <div className="h-18 flex items-center justify-center">
         <Button
+          asChild
           variant="outline"
           size="icon-lg"
-          className="rotate-45 transition-all duration-500 rounded-sm"
+          className="rounded-sm"
+          aria-label="Go back to top"
         >
-          <a href="#" className="-rotate-45 font-bold text-foreground pb-1.5">
-            AK
-            <span className="text-primary pl-0.5 text-[1.2rem] font-extrabold">.</span>
+          <a href="#" className="rotate-45 pb-1.5 transition-all duration-500">
+            <span className="-rotate-45 font-bold text-foreground">
+              AK
+              <span className="text-primary pl-0.5 text-[1.2rem] font-extrabold">.</span>
+            </span>
           </a>
         </Button>
       </div>

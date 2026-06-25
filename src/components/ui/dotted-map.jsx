@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/preserve-manual-memoization */
 import * as React from "react"
 import { createMap } from "svg-dotted-map"
 
@@ -22,12 +21,15 @@ export function DottedMap(
     ...svgProps
   }
 ) {
-  const { points, addMarkers } = createMap({
-    width,
-    height,
-    mapSamples,
-  })
-  const processedMarkers = addMarkers(markers)
+  
+  const { points, addMarkers } = React.useMemo(
+    () => createMap({ width, height, mapSamples }),
+    [width, height, mapSamples]
+  )
+  const processedMarkers = React.useMemo(
+    () => addMarkers(markers),
+    [addMarkers, markers]
+  )
 
   // Compute stagger helpers in a single, simple pass
   const { xStep, yToRowIndex } = React.useMemo(() => {
