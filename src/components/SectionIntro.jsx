@@ -1,8 +1,13 @@
 const SectionIntro = ({ title, direction }) => (
-  <section id="section-intro"
-    className={
-      direction === 'reverse' ? 'flex-row-reverse' : ''
-    }
+  <section
+    id="section-intro"
+    className={`
+      ${
+        direction === 'reverse'
+          ? 'flex-row-reverse'
+          : ''
+      }
+    `}
   >
     <h2>
       { title }
