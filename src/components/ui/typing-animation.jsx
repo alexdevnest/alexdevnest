@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@lib/utils"
 
 const motionElements = {
   article: motion.article,
@@ -162,7 +163,7 @@ export function TypingAnimation({
     <MotionComponent
       ref={elementRef}
       className={cn(
-        "leading-20 tracking-[-0.02em]",
+        "leading-10 tracking-[-0.02em] font-extrabold",
         Component === "span" && "inline-block",
         className
       )}

@@ -1,10 +1,24 @@
-import Layout from "./Layout";
+import { Route, Routes } from "react-router-dom";
+import Layout from "@pages/Layout";
+import Home from "@pages/Home";
+import Projects from "@pages/Projects";
 
 
 export default function App () {
   return (
-    <Layout>
-      <p>App</p>
-    </Layout>
+    <Routes>
+      <Route
+        index
+        element={
+          <Layout>
+            <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path="/projects"
+        element={ <Projects /> }
+      />
+    </Routes>
   );
 }
