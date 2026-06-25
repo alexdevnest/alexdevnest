@@ -71,10 +71,9 @@ export default function Hero () {
 
         </p>
 
-        <a href="#contact">
+        <a href="#contact" className="max-w-25.75 max-h-12.5">
           <Button
-            size="lg"
-            className="transition-all duration-500 mt-3 p-6 font-bold hover:text-secondary-foreground"
+            className="transition-all duration-700 mt-3 p-6 font-bold hover:text-secondary-foreground cursor-pointer max-w-25.75"
           >
             Contact
           </Button>

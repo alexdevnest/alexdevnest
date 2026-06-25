@@ -101,7 +101,7 @@
   }
 
   .footer-links {
-    @apply transition-transform hover:text-muted-foreground hover:scale-105;
+    @apply transition-transform duration-300 hover:text-muted-foreground hover:scale-105;
   }
 
 }
