@@ -3,9 +3,13 @@ import { primaryColor } from "@constants";
 import SectionIntro from "./SectionIntro";
 import StackCloud from "./StackCloud";
 import StackList from "./StackList";
+import { useMediaQuery } from "@hooks/useMediaQuery";
 
 
 export default function About () {
+  const showStackCloud = useMediaQuery("(min-width: 900px)");
+
+
   return (
     <section className="page-section" id="about">
       <SectionIntro title="About" />
@@ -23,7 +27,7 @@ export default function About () {
           </p>
 
           <p>
-            My technical stack centers around JavaScript, TypeScript and Python, with tools like React, Vue, Next.js for frontend development and Node.js, Express.js, and Django for backend development. I work with both SQL and NoSQL databases, including PostgresQL, MySQL and MongoDB, to build dynamic, data-driven applications.
+            My technical stack centers around JavaScript, TypeScript and Python, with tools like React, Vue, Next.js for frontend development and Node.js, Express.js, and Django for backend development. I work with both SQL and NoSQL databases, including PostgreSQL, MySQL and MongoDB, to build dynamic, data-driven applications.
           </p>
 
           <p className="last-p">
@@ -33,17 +37,22 @@ export default function About () {
 
         <div className="tech-stack">
           <div>
-            <h1 className="text-2xl font-bold mb-1">
-              <GoTerminal className="inline mr-2" fill={primaryColor()} />
+            <h3 className="text-2xl font-bold mb-1">
+              <GoTerminal
+                className="inline mr-2"
+                fill={primaryColor()}
+              />
               Stack
-            </h1>
+            </h3>
 
             <StackList />
           </div>
 
-          <section className="stack-cloud">
-            <StackCloud />
-          </section>
+          {showStackCloud && (
+            <section className="stack-cloud">
+              <StackCloud />
+            </section>
+          )}
         </div>
       </section>
     </section>
