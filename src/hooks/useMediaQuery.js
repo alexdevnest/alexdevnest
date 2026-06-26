@@ -2,13 +2,22 @@
 import { useEffect, useState } from "react";
 
 export function useMediaQuery(query) {
-  const [matches, setMatches] = useState(() =>
-    typeof window !== "undefined"
+  const getMatches = () =>
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function"
       ? window.matchMedia(query).matches
-      : false
-  );
+      : false;
+
+  const [matches, setMatches] = useState(getMatches);
 
   useEffect(() => {
+    if (
+      typeof window === "undefined" ||
+      typeof window.matchMedia !== "function"
+    ) {
+      return;
+    }
+
     const media = window.matchMedia(query);
 
     const handleChange = (e) => {
