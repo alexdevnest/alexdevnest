@@ -1,4 +1,4 @@
-import { GoTerminal } from "react-icons/go";
+import { PiTerminalFill } from "react-icons/pi";
 import { primaryColor } from "@constants";
 import SectionIntro from "./SectionIntro";
 import StackCloud from "./StackCloud";
@@ -18,7 +18,7 @@ export default function About () {
         <article className="about-text">
           <p>
             <span
-              className="float-left leading-none font-extrabold text-3xl bg-muted p-1 pb-2 rounded-sm"
+              className="float-left leading-none font-extrabold text-4xl bg-muted p-1 pb-2 pt-0 rounded-sm mr-0.5"
             >F</span>ull-stack web developer focused on building modern, responsive web applications that are both practical and polished. I create seamless digital experiences for individuals, brands, and growing businesses, with an emphasis on clean design, intuitive user experiences, and reliable functionality across devices.
           </p>
 
@@ -38,7 +38,7 @@ export default function About () {
         <div className="tech-stack">
           <div>
             <h3 className="text-2xl font-bold mb-1">
-              <GoTerminal
+              <PiTerminalFill
                 className="inline mr-2"
                 fill={primaryColor()}
               />
