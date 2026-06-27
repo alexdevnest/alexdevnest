@@ -1,3 +1,21 @@
+import { BiLogoTypescript } from "react-icons/bi";
+import { DiPostgresql } from "react-icons/di";
+import { TbSeo, TbApi } from "react-icons/tb";
+import { SiVite } from "@icons-pack/react-simple-icons";
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import {
+  SiShadcnui, SiExpress, SiMongodb,
+  SiDrizzle, SiDjango, SiUpstash,
+  SiVercel, SiMysql, SiGsap
+} from "react-icons/si";
+import {
+  FaVuejs, FaReact, FaJsSquare,
+  FaNodeJs, FaBootstrap, FaPython,
+  FaGitAlt, FaGithub, FaAws,
+  FaCcStripe, FaPaypal
+} from "react-icons/fa"
+
+
 const SECTIONS_IDS = [
   "hero",
   "about",
@@ -7,6 +25,194 @@ const SECTIONS_IDS = [
   "contact",
   "footer",
 ]
+
+const TECH_STACK = [
+  {
+    id: 1,
+    label: 'JavaScript',
+    icon: FaJsSquare
+  },
+  {
+    id: 2,
+    label: 'TypeScript',
+    icon: BiLogoTypescript
+  },
+  {
+    id: 3,
+    label: 'React',
+    icon: FaReact
+  },
+  {
+    id: 4,
+    label: 'Next.Js',
+    icon: RiNextjsFill
+  },
+  {
+    id: 5,
+    label: 'Vue',
+    icon: FaVuejs
+  },
+  {
+    id: 6,
+    label: 'Node.Js',
+    icon: FaNodeJs
+  },
+  {
+    id: 7,
+    label: 'Shadcn/ui',
+    icon: SiShadcnui
+  },
+  {
+    id: 8,
+    label: 'Tailwindcss',
+    icon: RiTailwindCssFill
+  },
+  {
+    id: 10,
+    label: 'Bootstrap',
+    icon: FaBootstrap
+  },
+    // Coderabbit don't flag this sequence
+  {
+    id: 31,
+    label: 'GSAP',
+    icon: SiGsap
+  },
+  {
+    id: 11,
+    label: 'Express.js',
+    icon: SiExpress
+  },
+  {
+    id: 12,
+    label: 'Mongodb',
+    icon: SiMongodb
+  },
+  {
+    id: 13,
+    label: 'PostgreSQL',
+    icon: DiPostgresql
+  },
+  {
+    id: 14,
+    label: 'Neondb',
+    icon: null
+  },
+  {
+    id: 15,
+    label: 'DrizzleOrm',
+    icon: SiDrizzle
+  },
+  {
+    id: 16,
+    label: 'Python',
+    icon: FaPython
+  },
+  {
+    id: 17,
+    label: 'Django',
+    icon: SiDjango
+  },
+  {
+    id: 18,
+    label: 'Mysql',
+    icon: SiMysql
+  },
+  {
+    id: 19,
+    label: 'Git',
+    icon: FaGitAlt
+  },
+  {
+    id: 20,
+    label: 'Github',
+    icon: FaGithub
+  },
+  {
+    id: 21,
+    label: 'SEO',
+    icon: TbSeo
+  },
+  {
+    id: 22,
+    label: 'AWS Cloud',
+    icon: FaAws
+  },
+  {
+    id: 23,
+    label: 'Upstash',
+    icon: SiUpstash
+  },
+  {
+    id: 24,
+    label: 'Stripe Integration',
+    icon: FaCcStripe
+  },
+  {
+    id: 25,
+    label: 'Paypal Integration',
+    icon: FaPaypal
+  },
+  {
+    id: 26,
+    label: 'Mpesa Integration',
+    icon: null
+  },
+  {
+    id: 27,
+    label: '3rd Party API Integration',
+    icon: TbApi
+  },
+  {
+    id: 28,
+    label: 'Deployment',
+    icon: SiVercel
+  },
+  {
+    id: 29,
+    label: 'Vite',
+    icon: SiVite
+  },
+  {
+    id: 30,
+    label: 'Arcjet Protection',
+    icon: null
+  },
+]
+
+const SLUGS = [
+  'typescript',
+  'javascript',
+  'python',
+  'react',
+  'vuedotjs',
+  'html5',
+  'css',
+  'tailwindcss',
+  'shadcnui',
+  'bootstrap',
+  'gsap',
+  'nextdotjs',
+  'nodedotjs',
+  'express',
+  'mongoose',
+  'mongodb',
+  'postgresql',
+  'django',
+  'mysql',
+  'neon',
+  'drizzle',
+  'cloudinary',
+  // 'aws',
+  'git',
+  'github',
+  'githubactions',
+  'vercel',
+  'eslint',
+  'vite',
+  'upstash',
+]
+
 
 function getThemeVar(variableName) {
   if (typeof document === "undefined") return ""
@@ -56,6 +262,8 @@ const fontMono =
 
 export {
   SECTIONS_IDS,
+  TECH_STACK,
+  SLUGS,
   backgroundColor,
   accentColor,
   foregroundColor,

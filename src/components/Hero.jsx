@@ -89,58 +89,57 @@ export default function Hero () {
           dotRadius={dotRadius}
           markerColor={ringColor()}
           renderMarkerOverlay={({ x, y, r, index }) => {
-          const { countryCode, label } = markerData.overlay
-          const href = `https://flagcdn.com/w80/${countryCode}.webp`
+            const { countryCode, label } = markerData.overlay
+            const href = `https://flagcdn.com/w80/${countryCode}.webp`
 
-          const clipId = `${id}-flag-clip-${index}`.replace(/:/g, "-")
-          const imgR = r * 0.75
+            const clipId = `${id}-flag-clip-${index}`.replace(/:/g, "-")
+            const imgR = r * 0.75
 
-          const fontSize = r * 1.2
-          const pillH = r * 1.8
-          const pillW = label.length * (fontSize * 0.62) + r * 1.6
-          const pillX = x + r + r * 0.6
-          const pillY = y - pillH / 2
+            const fontSize = r * 1.2
+            const pillH = r * 1.8
+            const pillW = label.length * (fontSize * 0.62) + r * 1.6
+            const pillX = x + r + r * 0.6
+            const pillY = y - pillH / 2
 
-          return (
-            <g style={{ pointerEvents: "none" }}>
-              <clipPath id={clipId}>
-                <circle cx={x} cy={y} r={imgR} />
-              </clipPath>
+            return (
+              <g style={{ pointerEvents: "none" }}>
+                <clipPath id={clipId}>
+                  <circle cx={x} cy={y} r={imgR} />
+                </clipPath>
 
-              <image
-                href={href}
-                x={x - imgR}
-                y={y - imgR}
-                width={imgR * 2}
-                height={imgR * 2}
-                preserveAspectRatio="xMidYMid slice"
-                clipPath={`url(#${clipId})`}
-              />
+                <image
+                  href={href}
+                  x={x - imgR}
+                  y={y - imgR}
+                  width={imgR * 2}
+                  height={imgR * 2}
+                  preserveAspectRatio="xMidYMid slice"
+                  clipPath={`url(#${clipId})`}
+                />
 
-              <rect
-                x={pillX}
-                y={pillY}
-                width={pillW}
-                height={pillH}
-                rx={pillH / 2}
-                fill={pillFill}
-              />
+                <rect
+                  x={pillX}
+                  y={pillY}
+                  width={pillW}
+                  height={pillH}
+                  rx={pillH / 2}
+                  fill={pillFill}
+                />
 
-              <text
-                x={pillX + r * 0.7}
-                y={y + fontSize * 0.35}
-                fontWeight="bold"
-                fontFamily={fontFamily}
-                fontSize={fontSize}
-                letterSpacing={.3}
-                fill={textFill}
-              >
-                {label}
-              </text>
-            </g>
-          )
-        }}
-
+                <text
+                  x={pillX + r * 0.7}
+                  y={y + fontSize * 0.35}
+                  fontWeight="bold"
+                  fontFamily={fontFamily}
+                  fontSize={fontSize}
+                  letterSpacing={.3}
+                  fill={textFill}
+                >
+                  {label}
+                </text>
+              </g>
+            )
+          }}
         />
       </div>
     </section>
