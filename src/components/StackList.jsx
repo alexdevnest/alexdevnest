@@ -14,7 +14,7 @@ export default function StackList () {
               <Badge
                 key={ stack.id }
                 variant="secondary"
-                className="py-3 px-4 text-[.9rem] transition-all duration-500 opacity-75 hover:opacity-95"
+                className="py-3 px-4 text-[.9rem] transition-all duration-500 opacity-75 hover:opacity-100"
               >
                 {
                   Icon && <Icon className="size-5 mr-1" />

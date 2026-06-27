@@ -7,6 +7,7 @@ import {
   chart5Color, ringColor,
   fontMono
 } from "@constants";
+import ke from '/ke.webp';
 
 
 export default function Hero () {
@@ -89,8 +90,7 @@ export default function Hero () {
           dotRadius={dotRadius}
           markerColor={ringColor()}
           renderMarkerOverlay={({ x, y, r, index }) => {
-            const { countryCode, label } = markerData.overlay
-            const href = `https://flagcdn.com/w80/${countryCode}.webp`
+            const { label } = markerData.overlay
 
             const clipId = `${id}-flag-clip-${index}`.replace(/:/g, "-")
             const imgR = r * 0.75
@@ -108,7 +108,7 @@ export default function Hero () {
                 </clipPath>
 
                 <image
-                  href={href}
+                  href={ke}
                   x={x - imgR}
                   y={y - imgR}
                   width={imgR * 2}
