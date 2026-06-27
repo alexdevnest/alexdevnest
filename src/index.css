@@ -105,7 +105,7 @@
   }
 
   .hero-text {
-    @apply mt-3 text-foreground dark:text-foreground/85 min-[450px]:text-[1.2rem];
+    @apply mt-3 text-foreground dark:text-foreground/85 min-[370px]:text-[1.2rem];
   }
 
   .about .about-text,

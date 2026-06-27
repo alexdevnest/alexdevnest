@@ -8,6 +8,7 @@ import {
   fontMono
 } from "@constants";
 import ke from '/ke.webp';
+import Mark from "./Mark";
 
 
 export default function Hero () {
@@ -48,7 +49,10 @@ export default function Hero () {
   return (
     <section className="page-section" id="hero">
       <div className="hero nowrap-f">
-        <h1 className="hero-title">Hi, I'm Alex.</h1>
+        <h1 className="hero-title">
+          Hi, I'm Alex
+          <span className="text-primary">.</span>
+        </h1>
         <TypingAnimation
           words={[
             "Full-stack Developer:", "Backend Developer,", "Frontend Developer,", "AWS Certified Cloud Practitioner."
@@ -57,17 +61,17 @@ export default function Hero () {
           loop
         />
         <p className="hero-text">
-          Full-Stack developer specialized in React + expressJs, NextJs, Django, and more.
+          <Mark color={"#FF9800cc"} action={'underline'}>Full-Stack developer</Mark> specialized in React + expressJs, NextJs, Django, and more.
           {' '}
           <br className="max-[840px]:hidden" />
           Cloud Specialist leveraging EC2, S3, and other cloud services when needed.
           {' '}
           <br className="max-[840px]:hidden" />
-          Freelance developer with over 3 years of experience.
+          Freelance developer with <Mark action="circle"><span className="mx-1 max-[685px]:mx-0">3+ years</span></Mark> of experience.
           {' '}
           <br className="max-[520px]:hidden" />
           <span className="min-[635px]:mt-2 min-[635px]:inline-block">
-            Looking for a developer to build your website?
+            Looking for a developer to <Mark color={accentColor()}>build your website?</Mark>
           </span>
 
         </p>
