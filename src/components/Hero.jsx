@@ -67,7 +67,7 @@ export default function Hero () {
           Cloud Specialist leveraging EC2, S3, and other cloud services when needed.
           {' '}
           <br className="max-[840px]:hidden" />
-          Freelance developer with <Mark action="circle"><span className="mx-1 max-[685px]:mx-0">3+ years</span></Mark> of experience.
+          Freelance developer with <Mark action="circle"><span className="mx-1 max-[685px]:mx-0">over 3 years</span></Mark> of experience.
           {' '}
           <br className="max-[520px]:hidden" />
           <span className="min-[635px]:mt-2 min-[635px]:inline-block">
