@@ -4,6 +4,8 @@ import SectionIntro from "./SectionIntro";
 import StackCloud from "./StackCloud";
 import StackList from "./StackList";
 import { useMediaQuery } from "@hooks/useMediaQuery";
+import Mark from "./Mark";
+import { accentColor } from "@/constants";
 
 
 export default function About () {
@@ -19,19 +21,19 @@ export default function About () {
           <p>
             <span
               className="float-left leading-none font-extrabold text-4xl bg-muted p-1 pb-2 pt-0 rounded-sm mr-0.5"
-            >F</span>ull-stack web developer focused on building modern, responsive web applications that are both practical and polished. I create seamless digital experiences for individuals, brands, and growing businesses, with an emphasis on clean design, intuitive user experiences, and reliable functionality across devices.
+            >F</span>ull-stack web developer focused on building <Mark>modern</Mark>, responsive web applications that are both <Mark action={'underline'} color="#FF9800" width={2}>practical and polished</Mark>. I create seamless digital experiences for individuals, <Mark color={'#51a2ff'} action={'underline'}>brands, and growing businesses</Mark>, with an emphasis on clean design, intuitive user experiences, and reliable functionality across devices.
           </p>
 
           <p>
-            I specialize in developing user-friendly interfaces and robust backend systems that work together smoothly, while also paying attention to performance, scalability, and maintainable code. Beyond building applications, I’m interested in creating solutions that are efficient, accessible, and structured for long-term growth rather than just quick launches.
+            I specialize in developing <Mark>user-friendly interfaces</Mark> and <Mark color={accentColor()}>robust backend systems</Mark> that work together smoothly, while also paying attention to <Mark action={'underline'} color="#FF9800">performance</Mark>, <Mark action={'underline'}>scalability</Mark>, and <Mark action={'underline'} color={'#51a2ff'}>maintainable</Mark> code. Beyond building applications, I’m interested in creating solutions that are efficient, accessible, and structured for long-term growth rather than just quick launches.
           </p>
 
           <p>
-            My technical stack centers around JavaScript, TypeScript and Python, with tools like React, Vue, Next.js for frontend development and Node.js, Express.js, and Django for backend development. I work with both SQL and NoSQL databases, including PostgreSQL, MySQL and MongoDB, to build dynamic, data-driven applications.
+            My technical stack centers around <Mark action={'underline'} color={'#51a2ff'}>JavaScript</Mark>, <Mark action={'underline'} color={'#51a2ff'}>TypeScript</Mark> and <Mark action={'underline'} color="#FF9800">Python</Mark>, with tools like React, Vue, Next.js for frontend development and Node.js, Express.js, and Django for backend development. I work with both <Mark color={'#51a2ff80'}>SQL</Mark> and <Mark color={'#00ff004d'}>NoSQL</Mark> databases, including PostgreSQL, MySQL and MongoDB, to build dynamic, data-driven applications.
           </p>
 
           <p className="last-p">
-            I also integrate AWS cloud services into development workflows, using cloud infrastructure and deployment tools to improve scalability, hosting, storage, and overall application performance. This allows me to move beyond simply building websites and toward creating full-stack applications that are production-ready, flexible, and cloud-enabled.
+            I also integrate <Mark color={'#0000ff33'}>AWS cloud services</Mark> into development workflows, using cloud infrastructure and deployment tools to improve scalability, <Mark color={'#00ffff66'}>hosting</Mark>, <Mark color={'#51a2ff80'}>storage</Mark>, and overall <Mark color={accentColor()}>application performance</Mark>. This allows me to move beyond simply building websites and toward creating full-stack applications that are production-ready, flexible, and cloud-enabled.
           </p>
         </article>
 

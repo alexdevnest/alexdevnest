@@ -11,25 +11,42 @@ export default function Layout ({ children }) {
   useEffect(() => {
     const sections = SECTIONS_IDS
       .map((id) => document.getElementById(id))
-      .filter(Boolean)
+      .filter(Boolean);
+
+    const visibleSections = new Map();
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleEntry = entries.find((entry) => entry.isIntersecting)
-        if (visibleEntry) {
-          setActiveSection(visibleEntry.target.id)
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(entry.target.id, entry);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        });
+
+        const active = [...visibleSections.values()]
+          .sort(
+            (a, b) =>
+              Math.abs(a.boundingClientRect.top) -
+              Math.abs(b.boundingClientRect.top)
+          )[0];
+
+        if (active && active.target.id !== activeSection) {
+          setActiveSection(active.target.id);
         }
       },
       {
         root: null,
-        threshold: 0.5,
+        threshold: 0,
+        rootMargin: "-72px 0px -60% 0px",
       }
-    )
+    );
 
-    sections.forEach((section) => observer.observe(section))
+    sections.forEach((section) => observer.observe(section));
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, [activeSection]);
 
 
   return (
