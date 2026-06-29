@@ -13,18 +13,27 @@ export default function Layout ({ children }) {
       .map((id) => document.getElementById(id))
       .filter(Boolean);
 
+    const visibleSections = new Map();
+
     const observer = new IntersectionObserver(
       (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.set(entry.target.id, entry);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        });
+
+        const active = [...visibleSections.values()]
           .sort(
             (a, b) =>
               Math.abs(a.boundingClientRect.top) -
               Math.abs(b.boundingClientRect.top)
-          );
+          )[0];
 
-        if (visibleSections.length) {
-          setActiveSection(visibleSections[0].target.id);
+        if (active && active.target.id !== activeSection) {
+          setActiveSection(active.target.id);
         }
       },
       {
@@ -37,7 +46,7 @@ export default function Layout ({ children }) {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
+  }, [activeSection]);
 
 
   return (

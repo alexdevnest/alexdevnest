@@ -131,7 +131,7 @@
       }
   
       .footer-text {
-        @apply max-[320px]:text-xs font-mono max-[283px]:text-[.6rem];
+        @apply max-[320px]:text-xs font-mono max-[298px]:text-[.6rem];
       }
   
       .footer-links {
@@ -147,7 +147,7 @@
     .icons-sl {
       @apply transition-all duration-500 hover:scale-150 hover:pb-1 active:scale-125 active:pt-1 size-7;
     }
-    
+
   }
 
 }

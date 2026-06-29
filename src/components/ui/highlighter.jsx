@@ -74,7 +74,6 @@ export function Highlighter({
     <span
       ref={elementRef}
       className="relative inline-block bg-transparent"
-      aria-label="Emphasized text"
     >
       {children}
     </span>
