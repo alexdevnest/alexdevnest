@@ -44,13 +44,15 @@ export function Highlighter({
       annotation = currentAnnotation
       currentAnnotation.show()
 
-      resizeObserver = new ResizeObserver(() => {
-        currentAnnotation.hide()
-        currentAnnotation.show()
-      })
+      if (typeof ResizeObserver !== "undefined") {
+        
+        resizeObserver = new ResizeObserver(() => {
+          currentAnnotation.hide()
+          currentAnnotation.show()
+        })
 
-      resizeObserver.observe(element)
-      resizeObserver.observe(document.body)
+        resizeObserver.observe(element)
+      }
     }
 
     return () => {
