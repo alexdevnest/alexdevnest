@@ -124,6 +124,101 @@
         }
       }
   
+      #services {
+        .services-title {
+          @apply text-3xl;
+        }
+
+        .services-intro {
+          @apply text-foreground dark:text-foreground/85 text-lg indent-4 mt-3;
+        }
+
+        .services {
+          @apply p-2 grid;
+        }
+
+        .services .card {
+          @apply relative py-4 px-6 rounded-lg transition-all duration-500 hover:-translate-y-2;
+
+          .corner{
+            @apply transition-all absolute;
+          }
+
+          .corner__tl {
+            @apply rotate-225 text-blue-300/50 top-1 left-1 size-5;
+          }
+
+          .corner__br {
+            @apply rotate-45 text-blue-300/50 bottom-1 right-2 size-5;
+          }
+
+          .card-intro-div {
+            @apply flex justify-between gap-2;
+          }
+
+          .card-intro-div .card__tag {
+            @apply font-mono text-[12px] tracking-[.12em] text-accent py-0.75 px-2 border border-accent/50 rounded-lg;
+          }
+
+          .card__icon {
+            @apply w-8.5 h-8.5 text-accent mt-4;
+          }
+
+          .card-body {
+            @apply mt-5;
+
+            h3 {
+              @apply text-lg font-bold;
+            }
+
+            p {
+              @apply text-sm mt-3;
+            }
+          }
+
+          .service-card-list {
+            @apply list-none space-y-2.5;
+
+            li {
+              @apply flex items-center gap-2.5 text-sm;
+            }
+          }
+        }
+
+        .card:hover {
+          .corner{
+            @apply text-blue-300;
+          }
+        }
+
+        .card.fullstack-card {
+          @apply max-[1023px]:w-full bg-primary;
+
+          .card__span {
+            @apply font-mono text-sm tracking-[.08em] flex items-center mb-7 gap-2 uppercase text-blue-300 my-3;
+          }
+
+          .card__span .line {
+            @apply flex-1 h-px bg-blue-300/40 relative;
+          }
+
+          .card__span .line::before,
+          .card__span .line::after {
+            content:"";
+            @apply absolute -top-0.75 w-px h-1.75 bg-blue-300/40;
+          }
+
+          .card__span .line::before {
+            @apply left-0;
+          }
+          .card__span .line::after {
+            @apply right-0;
+          }
+
+        }
+
+      }
+
     }
   
   
