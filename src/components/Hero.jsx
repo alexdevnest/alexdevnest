@@ -63,10 +63,10 @@ export default function Hero () {
         <p className="hero-text">
           <Mark color={"#FF9800cc"} action={'underline'}>Full-Stack developer</Mark> specialized in React + expressJs, NextJs, Django, and more.
           {' '}
-          <br className="max-[840px]:hidden" />
+          <br className="max-[907px]:hidden" />
           Cloud Specialist leveraging EC2, S3, and other cloud services when needed.
           {' '}
-          <br className="max-[840px]:hidden" />
+          <br className="max-[907px]:hidden" />
           Freelance developer with <Mark action="circle"><span className="mx-1 max-[685px]:mx-0">over 3 years</span></Mark> of experience.
           {' '}
           <br className="max-[520px]:hidden" />
