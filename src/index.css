@@ -348,7 +348,7 @@
     @apply transform-none;
 
     .card-header {
-      aspect-ratio: 20/9;
+      aspect-ratio: 20/8;
       @apply relative cursor-pointer rounded-md bg-muted overflow-hidden;
 
       .project-img {
@@ -368,6 +368,10 @@
 
       .project-meta {
         @apply relative flex items-center gap-2 text-xl font-bold max-[400px]:text-lg;
+
+        .project__ext__link {
+          @apply transition-all duration-500 hover:scale-115 hover:pb-1 active:scale-120 active:pt-1;
+        }
       }
 
       .project-tags {
@@ -381,11 +385,21 @@
         @apply relative mt-3;
 
         .details {
-          @apply text-foreground dark:text-foreground/85;
+          @apply text-foreground dark:text-foreground/85 mb-1;
         }
 
         .details-link {
-          @apply transition-all duration-300 mt-2 text-primary hover:text-primary/75;
+          @apply transition-all duration-300 text-primary hover:text-primary/75;
+
+          .link-deco {
+            @apply transition-all duration-300;
+          }
+        }
+
+        .details-link:hover {
+          .link-deco {
+            @apply ml-1;
+          }
         }
       }
 

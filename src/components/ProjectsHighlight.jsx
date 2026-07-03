@@ -5,7 +5,6 @@ import ProjectCard from "./ProjectCard";
 import { PROJECTS } from "@/constants/mock-data";
 
 
-
 export default function ProjectsHighlights () {
   return (
     <section className="page-section" id="projects">
@@ -14,7 +13,10 @@ export default function ProjectsHighlights () {
       <article
         className="link-to-projects"
       >
-        <Link to="/projects">
+        <Link
+          to="/projects"
+          aria-label="Go to projects page"
+        >
           <ArrowRight className="inline-block mr-2 animated-arrow" />
           View ALL Projects
         </Link>
@@ -36,7 +38,10 @@ export default function ProjectsHighlights () {
       <article
         className="link-to-projects"
       >
-        <Link to="/projects">
+        <Link
+          to="/projects"
+          aria-label="Go to projects page"
+        >
           <ArrowRight className="inline-block mr-2 animated-arrow" />
           View ALL Projects
         </Link>
