@@ -10,9 +10,9 @@ export default function Services () {
     <section className="page-section" id="services">
       <SectionIntro title="Services" direction='reverse' />
 
-      <h1 className="services-title">
+      <h2 className="services-title">
         One developer, the <mark>whole system</mark> — or just the part you need.
-      </h1>
+      </h2>
       <p className="services-intro">
         Tailored development solutions for every stage of your product journey
       </p>
@@ -24,8 +24,14 @@ export default function Services () {
 
         <article className="card fullstack-card">
           <div>
-            <TfiAngleRight className="corner corner__tl" />
-            <TfiAngleRight className="corner corner__br" />
+            <TfiAngleRight
+              className="corner corner__tl"
+              aria-hidden="true"
+            />
+            <TfiAngleRight
+              className="corner corner__br"
+              aria-hidden="true"
+            />
             <div className="card-intro-div">
               <span className="card__tag">FULL</span>
               <Badge
@@ -62,27 +68,39 @@ export default function Services () {
 
             <ul className="service-card-list">
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 React / Next.js / Vue
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 Node.js / Python
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 REST APIs / Websockets
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 Database Design & ORM
               </li>
               <li>
-                <IoCheckmark className="" />
-                Paymnents Integration
+                <IoCheckmark
+                  aria-hidden="true"
+                />
+                Payments Integration
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 AWS / Github Actions / Deployment
               </li>
             </ul>
@@ -102,8 +120,14 @@ export default function Services () {
         <div className="group">
           <article className="card frontend-card">
             <div>
-              <TfiAngleRight className="corner corner__tl" />
-              <TfiAngleRight className="corner corner__br" />
+              <TfiAngleRight
+                className="corner corner__tl"
+                aria-hidden="true"
+              />
+              <TfiAngleRight
+                className="corner corner__br"
+                aria-hidden="true"
+              />
               <span className="card__tag">FE</span>
               <svg
                 className="card__icon"
@@ -123,32 +147,44 @@ export default function Services () {
               <h3>Frontend Development</h3>
 
               <p>
-                Pixel-perfect, responsive user interfaces with modern frameworks. I focus on performance accessibility, and smooth interactions that keep users engaged.
+                Pixel-perfect, responsive user interfaces with modern frameworks. I focus on performance, accessibility, and smooth interactions that keep users engaged.
               </p>
 
               <ul className="service-card-list">
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Typescript / Javascript
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   React / Next.js / Vue
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Tailwindcss / Bootstrap / Shadcn UI
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   GSAP / Motion / Zustand
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   SEO & Accessibility
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Responsive Design
                 </li>
               </ul>
@@ -167,13 +203,19 @@ export default function Services () {
 
           <article className="card backend-card">
             <div>
-              <TfiAngleRight className="corner corner__tl" />
-              <TfiAngleRight className="corner corner__br" />
+              <TfiAngleRight
+                className="corner corner__tl"
+                aria-hidden="true"
+              />
+              <TfiAngleRight
+                className="corner corner__br"
+                aria-hidden="true"
+              />
               <span className="card__tag">BE</span>
               <svg
                 className="card__icon"
                 viewBox="0 0 40 40" fill="none" stroke="currentColor"
-                strokeWidth="1.6"strokeLinecap="round"
+                strokeWidth="1.6" strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <rect x="8" y="6" width="24" height="9" rx="2" />
@@ -193,27 +235,39 @@ export default function Services () {
 
               <ul className="service-card-list">
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   REST APIs / Websockets
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Authentication & Authorization
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Database Design & Optimization
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Security & Monitoring
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   Payment Integrations
                 </li>
                 <li>
-                  <IoCheckmark className="" />
+                  <IoCheckmark
+                    aria-hidden="true"
+                  />
                   <span>3<sup>rd</sup></span> Party APIs Integration
                 </li>
               </ul>
@@ -233,8 +287,14 @@ export default function Services () {
 
         <article className="card aws-card">
           <div>
-            <TfiAngleRight className="corner corner__tl" />
-            <TfiAngleRight className="corner corner__br" />
+            <TfiAngleRight
+              className="corner corner__tl"
+              aria-hidden="true"
+            />
+            <TfiAngleRight
+              className="corner corner__br"
+              aria-hidden="true"
+            />
             <span className="card__tag">AWS</span>
             <svg
               className="card__icon"
@@ -257,24 +317,32 @@ export default function Services () {
             <h3>AWS Cloud Integration</h3>
 
             <p>
-              Cloud-native infrastructure design and deployment on AwS. I help businesses leverage the cloud for scalability, security, and cost efficiency.
+              Cloud-native infrastructure design and deployment on AWS. I help businesses leverage the cloud for scalability, security, and cost efficiency.
             </p>
 
             <ul className="service-card-list">
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 EC2, Lambda, ECS/Fargate
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 S3, RDS & DynamoDB
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 Cloudfront & Route 53
               </li>
               <li>
-                <IoCheckmark className="" />
+                <IoCheckmark
+                  aria-hidden="true"
+                />
                 VPCs
               </li>
             </ul>
