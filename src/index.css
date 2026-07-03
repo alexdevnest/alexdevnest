@@ -124,6 +124,157 @@
         }
       }
   
+      #services {
+        .services-title {
+          @apply text-3xl;
+        }
+
+        .services-intro {
+          @apply text-foreground dark:text-foreground/85 indent-4 mt-3;
+        }
+
+        .services {
+          @apply p-2 grid gap-5 min-[1024px]:grid-cols-2 min-[1024px]:grid-rows-2;
+        }
+
+        .services .card {
+          @apply relative flex flex-col py-4 px-6 rounded-lg hover:-translate-y-2;
+
+          .corner {
+            @apply transition-opacity duration-500 text-blue-300/50 absolute opacity-0;
+          }
+
+          .corner__tl {
+            @apply rotate-225  top-1 left-1 size-5;
+          }
+
+          .corner__br {
+            @apply rotate-45  bottom-1 right-2 size-5;
+          }
+
+          .card-intro-div {
+            @apply flex justify-between gap-2;
+          }
+
+          .card__tag {
+            @apply font-mono font-bold text-center text-[12px] tracking-[.12em] text-accent py-0.75 px-2 max-h-6.5 max-w-12.75 border border-accent/50 rounded-md;
+          }
+
+          .card__icon {
+            @apply w-8.5 h-8.5 text-accent mt-4;
+          }
+
+          .card-body {
+            @apply flex-1 mt-5;
+
+            h3 {
+              @apply text-lg font-bold dark:text-foreground/85;
+            }
+
+            p {
+              @apply text-sm mt-3 dark:text-foreground/85;
+            }
+
+            .service-card-list {
+              @apply list-none space-y-2.5 mt-6;
+  
+              li {
+                @apply flex items-center gap-2.5 text-sm text-foreground/95 dark:text-foreground/75;
+              }
+            }
+          }
+
+          .card__cta {
+            @apply mt-6;
+
+            .cta__link {
+              @apply text-xs font-mono text-blue-500;
+  
+              .cta__arrow {
+                @apply transition-all duration-500 text-pink-500 inline ml-2 size-4;
+              }
+            }
+
+            .cta__link:hover {
+              .cta__arrow {
+                @apply -rotate-45;
+              }
+            }
+
+          }
+
+        }
+
+        .card:hover {
+          .corner{
+            @apply opacity-100;
+          }
+        }
+
+        .card.fullstack-card {
+          @apply min-[1024px]:row-span-2 bg-primary/70 transition-all duration-500;
+
+          .corner {
+            @apply opacity-100;
+          }
+
+          .card__span {
+            @apply font-mono text-sm tracking-[.08em] flex items-center my-3 gap-2 uppercase text-blue-300;
+          }
+
+          .card__span .line {
+            @apply flex-1 h-px bg-blue-300/40 relative;
+          }
+
+          .card__span .line::before,
+          .card__span .line::after {
+            content:"";
+            @apply absolute -top-0.75 w-px h-1.75 bg-blue-300/40;
+          }
+
+          .card__span .line::before {
+            @apply left-0;
+          }
+          .card__span .line::after {
+            @apply right-0;
+          }
+
+          .card__cta {
+            .cta__link {
+              @apply text-blue-900;
+              
+              .cta__arrow {
+                @apply text-cyan-300;
+              }
+            }
+
+          }
+
+        }
+
+        .card.fullstack-card:hover {
+          .corner {
+            @apply text-blue-300
+          }
+        }
+
+        .services .group {
+          @apply grid grid-cols-2 gap-3 max-[640px]:block;
+        }
+
+        .card.frontend-card,
+        .card.backend-card,
+        .card.aws-card {
+          @apply transition-all duration-600 border border-border hover:bg-primary/10 dark:hover:bg-primary/5;
+        }
+
+        .card.frontend-card,
+        .card.backend-card {
+          @apply max-[640px]:my-3;
+        }
+
+      }
+
     }
   
   
@@ -276,7 +427,8 @@
 /* Custom Tweakcn Theme/s */
 
 /* Quantum rose theme */
-/* :root {
+/* 
+:root {
   --background: oklch(0.9692 0.0192 343.9344);
   --foreground: oklch(0.4426 0.1653 352.3762);
   --card: oklch(0.9837 0.0107 339.3288);
@@ -448,7 +600,7 @@
 
 /* Looks good #2 */
 /* T3 Chat theme */
-
+/*
 :root {
   --background: oklch(0.9754 0.0084 325.6414);
   --foreground: oklch(0.3257 0.1161 325.0372);
@@ -609,6 +761,7 @@
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
 }
+*/
 
 /* Sunset Horizon theme */
 /* 
@@ -1269,7 +1422,7 @@
 
 /* Looks Good #1 */
 /* Amethyst haze Theme */
-/* 
+
 :root {
   --background: oklch(0.9777 0.0041 301.4256);
   --foreground: oklch(0.3651 0.0325 287.0807);
@@ -1429,7 +1582,7 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
-} */
+}
 
 ::view-transition-old(root), ::view-transition-new(root) {
   animation: none;
