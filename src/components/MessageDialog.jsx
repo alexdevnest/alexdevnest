@@ -1,14 +1,9 @@
 import { useState } from "react";
 import { Button } from "@ui/button"
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  Dialog, DialogClose, DialogContent,
+  DialogDescription, DialogFooter, DialogHeader,
+  DialogTitle, DialogTrigger,
 } from "@ui/dialog"
 import { Field, FieldGroup } from "@ui/field"
 import { Input } from "@ui/input"
@@ -28,6 +23,9 @@ export default function DialogDemo() {
     e.preventDefault();
 
     // Logic here later on
+    console.log(name);
+    console.log(email);
+    console.log(message);
 
     setName("")
     setEmail("")
@@ -60,7 +58,7 @@ export default function DialogDemo() {
                 name="name"
                 placeholder="Moon Outlaw"
                 value={ name }
-                onChange={ () => setName(name) }
+                onChange={ (e) => setName(e.target.value) }
               />
             </Field>
             <Field>
@@ -71,7 +69,7 @@ export default function DialogDemo() {
                 name="email"
                 placeholder="outmoon@gmail.com"
                 value={ email }
-                onChange={ () => setEmail(email) }
+                onChange={ (e) => setEmail(e.target.value) }
               />
             </Field>
             <Field>
@@ -81,7 +79,7 @@ export default function DialogDemo() {
                 name="message"
                 placeholder="Discuss a project."
                 value={ message }
-                onChange={ () => setMessage(message) }
+                onChange={ (e) => setMessage(e.target.value) }
                 className="h-32 overflow-auto"
               />
             </Field>
