@@ -31,6 +31,28 @@
 
 
 @layer components {
+
+  @keyframes animate-arrow {
+    0% {
+      transform: translateX(0);
+    }
+    20% {
+      transform: translateX(5px);
+    }
+    40% {
+      transform: translateX(0);
+    }
+    60% {
+      transform: translateX(5px);
+    }
+    80% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   #layout {
     @apply min-h-screen max-w-screen overflow-x-hidden;
 
@@ -275,6 +297,23 @@
 
       }
 
+      #projects {
+
+        .link-to-projects {
+          @apply flex items-center justify-center p-8 text-lg text-foreground/70 max-[400px]:text-sm max-[400px]:px-4 max-[300px]:px-2;
+        
+          .animated-arrow {
+            animation: animate-arrow 1.2s ease-in-out infinite;
+          }
+
+        }
+
+        .projects-highlights {
+          @apply grid min-[770px]:grid-cols-2 gap-8;
+        }
+      
+      }
+
     }
   
   
@@ -296,13 +335,75 @@
   
     .icons-s,
     .icons-sl {
-      @apply text-primary/70 cursor-pointer;
+      @apply text-primary/70 hover:text-primary cursor-pointer;
     }
   
     .icons-sl {
       @apply transition-all duration-500 hover:scale-150 hover:pb-1 active:scale-125 active:pt-1 size-7;
     }
 
+  }
+
+  .project-card {
+    @apply transform-none;
+
+    .card-header {
+      aspect-ratio: 20/8;
+      @apply relative cursor-pointer rounded-md bg-muted overflow-hidden;
+
+      .project-img {
+        @apply absolute w-[85%] left-[50%] max-[600px]:bottom-3.5 bottom-7.5 translate-x-[-50%] translate-y-[20%] h-auto rounded-sm min-[770px]:max-[955px]:bottom-3.5 transition-all duration-500;
+      }
+
+    }
+
+    .card-header:hover {
+      .project-img {
+        @apply w-[90%] rotate-2;
+      }
+    }
+
+    .card-body {
+      @apply my-[1.6rem];
+
+      .project-meta {
+        @apply relative flex items-center gap-2 text-xl font-bold max-[400px]:text-lg;
+
+        .project__ext__link {
+          @apply transition-all duration-500 hover:scale-115 hover:-translate-y-1 active:scale-120 active:translate-y-1;
+        }
+      }
+
+      .project-tags {
+        @apply relative w-fit mt-3;
+        .tags {
+          @apply transition-all duration-300 text-primary/75 hover:text-primary w-fit;
+        }
+      }
+
+      .project-details {
+        @apply relative mt-3;
+
+        .details {
+          @apply text-foreground dark:text-foreground/85 mb-1;
+        }
+
+        .details-link {
+          @apply transition-all duration-300 text-primary hover:text-primary/75;
+
+          .link-deco {
+            @apply transition-all duration-300;
+          }
+        }
+
+        .details-link:hover {
+          .link-deco {
+            @apply ml-1;
+          }
+        }
+      }
+
+    }
   }
 
 }
