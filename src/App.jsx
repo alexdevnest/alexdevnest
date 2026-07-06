@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Layout from "@pages/Layout";
 import Home from "@pages/Home";
 import Projects from "@pages/Projects";
+import Meeting from "@pages/Meeting";
 import PrivacyPolicy from "@pages/PrivacyPolicy";
 import LegalNotice from "@pages/LegalNotice";
 
@@ -20,6 +21,10 @@ export default function App () {
       <Route
         path="/projects"
         element={ <Projects /> }
+      />
+      <Route
+        path="/schedule-meeting"
+        element={ <Meeting /> }
       />
       <Route
         path="/privacy"
