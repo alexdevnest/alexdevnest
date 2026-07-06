@@ -75,7 +75,7 @@ export default function ProjectCard ({
           <Link
             to={
               id
-                ? `/projects/:${id}`
+                ? `/projects/${id}`
                 : '/projects'
             }
             className="details-link"

@@ -370,7 +370,7 @@
         @apply relative flex items-center gap-2 text-xl font-bold max-[400px]:text-lg;
 
         .project__ext__link {
-          @apply transition-all duration-500 hover:scale-115 hover:pb-1 active:scale-120 active:pt-1;
+          @apply transition-all duration-500 hover:scale-115 hover:-translate-y-1 active:scale-120 active:translate-y-1;
         }
       }
 
