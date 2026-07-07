@@ -10,32 +10,37 @@ import { Input } from "@ui/input"
 import { Textarea } from "@ui/textarea"
 import { Label } from "@ui/label"
 import { TbSend2 } from "react-icons/tb";
-import { messageSchema } from "@/lib/utils";
-
+import { messageSchema, sendMessage } from "@/lib/utils";
+import { destructiveColor } from "@/constants";
+import { toast } from "sonner";
 
 
 export default function DialogDemo() {
-  const [open, setOpen] = useState(false);
+  const [ open, setOpen ] = useState(false);
 
   const initialForm = {
     name: "",
     email: "",
+    title: "",
     message: "",
   };
   const initialTouched = {
     name: false,
     email: false,
+    title: false,
     message: false
   };
   const initialErrors = {
     name: "",
     email: "",
+    title: "",
     message: ""
   };
 
-  const [form, setForm] = useState(initialForm);
-  const [touched, setTouched] = useState(initialTouched);
-  const [errors, setErrors] = useState(initialErrors);
+  const [ form, setForm ] = useState(initialForm);
+  const [ touched, setTouched ] = useState(initialTouched);
+  const [ errors, setErrors ] = useState(initialErrors);
+  const [ isSending, setIsSending ] = useState(false);
 
 
   const validateField = (name, value) => {
@@ -66,8 +71,20 @@ export default function DialogDemo() {
 
   const closeDialog = () => setOpen(false);
 
-  const onSubmit = (e) => {
+  
+  const onSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true)
+
+    if (
+      !form.name.trim()
+        ||
+      !form.email.trim()
+        ||
+      !form.title.trim()
+        ||
+      !form.message.trim()
+    ) return;
 
     const result = messageSchema.safeParse(form);
 
@@ -77,16 +94,32 @@ export default function DialogDemo() {
       result.error.issues.forEach((issue) => {
         fieldErrors[issue.path[0]] = issue.message;
       });
-
+      
       setErrors(fieldErrors);
-      setTouched({ name: true, email: true, message: true });
+      setTouched({ name: true, email: true, title: true, message: true });
       return;
     }
 
-    // TODO: Implement send message logig -> Later
+    const { name, email, title, message } = result.data;
+    const payload = { name, email, title, message }
 
-    resetForm();
-    closeDialog();
+    try {
+      await sendMessage(payload)
+      resetForm();
+      closeDialog();
+    }
+    catch (e) {
+      console.error(`Error trying to send message: ${e}`);
+      toast.error("Could not send the message. Please try again later.", {
+        style: {
+          color: destructiveColor()
+        },
+        position: 'bottom-center'
+      })
+    }
+    finally {
+      setIsSending(false)
+    }
   };
 
   return (
@@ -110,7 +143,7 @@ export default function DialogDemo() {
           <TbSend2 />
         </Button>
       </DialogTrigger>
-      <DialogContent className="min-[500px]:max-w-md sm:max-w-sm">
+      <DialogContent className="sm:max-w-sm w-lg">
         <DialogHeader>
           <DialogTitle className="text-lg font-bold">Send Message</DialogTitle>
           <DialogDescription>
@@ -163,11 +196,33 @@ export default function DialogDemo() {
               }
             </Field>
             <Field>
+              <Label htmlFor="title">Title</Label>
+              <Input
+                type="title"
+                id="title"
+                name="title"
+                placeholder="I'd like to discuss a project."
+                value={ form.title }
+                onChange={ handleChange }
+                onBlur={
+                  () => setTouched((prev) => ({ ...prev, title: true }))
+                }
+              />
+
+              {
+                touched.title && errors.title && (
+                  <span className="text-destructive text-xs">
+                      {errors.title}
+                  </span>
+                )
+              }
+            </Field>
+            <Field>
               <Label htmlFor="message">Message</Label>
               <Textarea
                 id="message"
                 name="message"
-                placeholder="Discuss a project."
+                placeholder="Project details...."
                 value={ form.message }
                 onChange={ handleChange }
                 onBlur={
@@ -191,6 +246,7 @@ export default function DialogDemo() {
             </DialogClose>
             <Button
               type="submit"
+              disabled={ isSending }
             >Send</Button>
           </DialogFooter>
         </form>
