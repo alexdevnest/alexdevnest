@@ -24,15 +24,15 @@ export default function Contact () {
 
         <section className="contact-links_1">
           <a
-            href="mailto:officialex236@gmail.com"
+            href="mailto:officialalex236@gmail.com"
             className="flex gap-1.5 items-center hover:text-primary"
           >
             <AiFillMail className="inline size-6 max-[351px]:size-4" />
-            officialex236@gmail.com
+            officialalex236@gmail.com
           </a>
           <Link
             to="/schedule-meeting"
-            className="flex gap-1.5 items-center hover:text-primary"
+            className="flex gap-1.5 items-center transition-colors duration-300 text-primary hover:text-primary/80"
           >
             <FaCalendar className="inline size-5 max-[351px]:size-4" />
             Set up a meeting

@@ -10,46 +10,105 @@ import { Input } from "@ui/input"
 import { Textarea } from "@ui/textarea"
 import { Label } from "@ui/label"
 import { TbSend2 } from "react-icons/tb";
+import { messageSchema } from "@/lib/utils";
 
 
 
 export default function DialogDemo() {
-  const [ name, setName ] = useState("");
-  const [ email, setEmail ] = useState("");
-  const [ message, setMessage ] = useState("");
+  const [open, setOpen] = useState(false);
 
+  const initialForm = {
+    name: "",
+    email: "",
+    message: "",
+  };
+  const [form, setForm] = useState(initialForm);
+  const [touched, setTouched] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+  const [errors, setErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const validateField = (name, value) => {
+    const result = messageSchema.shape[name].safeParse(value);
+
+    setErrors((prev) => ({
+        ...prev,
+        [name]: result.success ? "" : result.error.issues[0].message,
+    }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+        ...prev,
+        [name]: value,
+    }));
+
+    validateField(name, value);
+  };
+
+  const resetForm = () => setForm(initialForm);
+
+  const closeDialog = () => setOpen(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // Logic here later on
-    console.log(name);
-    console.log(email);
-    console.log(message);
+    const result = messageSchema.safeParse(form);
 
-    setName("")
-    setEmail("")
-    setMessage("")
-  }
+    if (!result.success) {
+        const fieldErrors = {};
+
+        result.error.issues.forEach((issue) => {
+            fieldErrors[issue.path[0]] = issue.message;
+        });
+
+        setErrors(fieldErrors);
+        return;
+    }
+
+    console.log(form);
+
+    resetForm();
+    closeDialog();
+  };
 
   return (
-    <Dialog>
-      <form>
-        <DialogTrigger asChild>
-          <Button
-            className="msg-btn"
-          >
-            Send me a message
-            <TbSend2 />
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="min-[500px]:max-w-md sm:max-w-sm">
-          <DialogHeader>
-            <DialogTitle className="text-lg font-bold">Send Message</DialogTitle>
-            <DialogDescription>
-              Your message will be processed within 3 business days.
-            </DialogDescription>
-          </DialogHeader>
+    <Dialog
+      open={open}
+      onOpenChange={
+        (isOpen) => {
+          if (!isOpen) {
+            resetForm();
+          }
+
+          setOpen(isOpen);
+        }
+      }
+    >
+      <DialogTrigger asChild>
+        <Button
+          className="msg-btn"
+        >
+          Send me a message
+          <TbSend2 />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="min-[500px]:max-w-md sm:max-w-sm">
+        <DialogHeader>
+          <DialogTitle className="text-lg font-bold">Send Message</DialogTitle>
+          <DialogDescription>
+            Your message will be processed within 3 business days.
+          </DialogDescription>
+        </DialogHeader>
+        <form onSubmit={ onSubmit }>
           <FieldGroup>
             <Field>
               <Label htmlFor="name">Name</Label>
@@ -57,9 +116,20 @@ export default function DialogDemo() {
                 id="name"
                 name="name"
                 placeholder="Moon Outlaw"
-                value={ name }
-                onChange={ (e) => setName(e.target.value) }
+                value={ form.name }
+                onChange={ handleChange }
+                onBlur={
+                  () => setTouched((prev) => ({ ...prev, name: true }))
+                }
               />
+
+              {
+                touched.name && errors.name && (
+                  <span className="text-destructive text-xs">
+                      {errors.name}
+                  </span>
+                )
+              }
             </Field>
             <Field>
               <Label htmlFor="email">Email</Label>
@@ -68,9 +138,20 @@ export default function DialogDemo() {
                 id="email"
                 name="email"
                 placeholder="outmoon@gmail.com"
-                value={ email }
-                onChange={ (e) => setEmail(e.target.value) }
+                value={ form.email }
+                onChange={ handleChange }
+                onBlur={
+                  () => setTouched((prev) => ({ ...prev, email: true }))
+                }
               />
+
+              {
+                touched.email && errors.email && (
+                  <span className="text-destructive text-xs">
+                      {errors.email}
+                  </span>
+                )
+              }
             </Field>
             <Field>
               <Label htmlFor="message">Message</Label>
@@ -78,25 +159,33 @@ export default function DialogDemo() {
                 id="message"
                 name="message"
                 placeholder="Discuss a project."
-                value={ message }
-                onChange={ (e) => setMessage(e.target.value) }
+                value={ form.message }
+                onChange={ handleChange }
+                onBlur={
+                  () => setTouched((prev) => ({ ...prev, message: true }))
+                }
                 className="h-32 overflow-auto"
               />
+
+              {
+                touched.message && errors.message && (
+                  <span className="text-destructive text-xs">
+                      {errors.message}
+                  </span>
+                )
+              }
             </Field>
           </FieldGroup>
-          <DialogFooter>
+          <DialogFooter className="mt-3">
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
             <Button
               type="submit"
-              onClick={
-                (e) => onSubmit(e)
-              }
             >Send</Button>
           </DialogFooter>
-        </DialogContent>
-      </form>
+        </form>
+      </DialogContent>
     </Dialog>
   )
 }
