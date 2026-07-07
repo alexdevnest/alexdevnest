@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { Button } from "@ui/button"
 import {
   Dialog, DialogClose, DialogContent,
@@ -13,30 +14,31 @@ import { TbSend2 } from "react-icons/tb";
 import { messageSchema } from "@/lib/utils";
 
 
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function DialogDemo() {
   const [open, setOpen] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState("");
 
   const initialForm = {
     name: "",
     email: "",
     message: "",
   };
-  const initialTouched = {
+  const [form, setForm] = useState(initialForm);
+  const [touched, setTouched] = useState({
     name: false,
     email: false,
-    message: false
-  };
-  const initialErrors = {
+    message: false,
+  });
+  const [errors, setErrors] = useState({
     name: "",
     email: "",
-    message: ""
-  };
-
-  const [form, setForm] = useState(initialForm);
-  const [touched, setTouched] = useState(initialTouched);
-  const [errors, setErrors] = useState(initialErrors);
-
+    message: "",
+  });
 
   const validateField = (name, value) => {
     const result = messageSchema.shape[name].safeParse(value);
@@ -60,33 +62,49 @@ export default function DialogDemo() {
 
   const resetForm = () => {
     setForm(initialForm);
-    setTouched(initialTouched);
-    setErrors(initialErrors);
+    setSendError("");
   };
 
   const closeDialog = () => setOpen(false);
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
 
     const result = messageSchema.safeParse(form);
 
     if (!result.success) {
-      const fieldErrors = {};
+        const fieldErrors = {};
 
-      result.error.issues.forEach((issue) => {
-        fieldErrors[issue.path[0]] = issue.message;
-      });
+        result.error.issues.forEach((issue) => {
+            fieldErrors[issue.path[0]] = issue.message;
+        });
 
-      setErrors(fieldErrors);
-      setTouched({ name: true, email: true, message: true });
-      return;
+        setErrors(fieldErrors);
+        return;
     }
 
-    // TODO: Implement send message logig -> Later
+    setSendError("");
+    setIsSending(true);
 
-    resetForm();
-    closeDialog();
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: result.data.name,
+          from_email: result.data.email,
+          message: result.data.message,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      resetForm();
+      closeDialog();
+    } catch {
+      setSendError("Something went wrong. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -185,13 +203,23 @@ export default function DialogDemo() {
               }
             </Field>
           </FieldGroup>
+
+          {
+            sendError && (
+              <span className="text-destructive text-xs mt-3 block">
+                {sendError}
+              </span>
+            )
+          }
+
           <DialogFooter className="mt-3">
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button variant="outline" disabled={ isSending }>Cancel</Button>
             </DialogClose>
             <Button
               type="submit"
-            >Send</Button>
+              disabled={ isSending }
+            >{ isSending ? "Sending..." : "Send" }</Button>
           </DialogFooter>
         </form>
       </DialogContent>
