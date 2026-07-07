@@ -22,17 +22,21 @@ export default function DialogDemo() {
     email: "",
     message: "",
   };
-  const [form, setForm] = useState(initialForm);
-  const [touched, setTouched] = useState({
+  const initialTouched = {
     name: false,
     email: false,
-    message: false,
-  });
-  const [errors, setErrors] = useState({
+    message: false
+  };
+  const initialErrors = {
     name: "",
     email: "",
-    message: "",
-  });
+    message: ""
+  };
+
+  const [form, setForm] = useState(initialForm);
+  const [touched, setTouched] = useState(initialTouched);
+  const [errors, setErrors] = useState(initialErrors);
+
 
   const validateField = (name, value) => {
     const result = messageSchema.shape[name].safeParse(value);
@@ -54,7 +58,11 @@ export default function DialogDemo() {
     validateField(name, value);
   };
 
-  const resetForm = () => setForm(initialForm);
+  const resetForm = () => {
+    setForm(initialForm);
+    setTouched(initialTouched);
+    setErrors(initialErrors);
+  };
 
   const closeDialog = () => setOpen(false);
 
@@ -64,17 +72,18 @@ export default function DialogDemo() {
     const result = messageSchema.safeParse(form);
 
     if (!result.success) {
-        const fieldErrors = {};
+      const fieldErrors = {};
 
-        result.error.issues.forEach((issue) => {
-            fieldErrors[issue.path[0]] = issue.message;
-        });
+      result.error.issues.forEach((issue) => {
+        fieldErrors[issue.path[0]] = issue.message;
+      });
 
-        setErrors(fieldErrors);
-        return;
+      setErrors(fieldErrors);
+      setTouched({ name: true, email: true, message: true });
+      return;
     }
 
-    console.log(form);
+    // TODO: Implement send message logig -> Later
 
     resetForm();
     closeDialog();

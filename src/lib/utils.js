@@ -14,10 +14,7 @@ export const messageSchema = z.object({
     .min(3, "Name is too short.")
     .max(35, "Name cannot exceed 35 characters."),
 
-  email: z
-    .string()
-    .trim()
-    .email("Please enter a valid email address."),
+  email: z.email("Please enter a valid email address."),
 
   message: z
     .string()
