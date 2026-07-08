@@ -1,4 +1,6 @@
 import SectionIntro from "./SectionIntro";
+import ExpCard from "./ExpCard";
+import { EXP } from "@constants";
 
 
 export default function Experience () {
@@ -7,7 +9,16 @@ export default function Experience () {
       <SectionIntro title="Experience" direction="reverse" />
 
       <section className="experience">
-        Experience
+        {
+          EXP.map(
+            (exp) => (
+              <ExpCard
+                key={ exp.id }
+                { ...exp }
+              />
+            )
+          )
+        }
       </section>
     </section>
   );

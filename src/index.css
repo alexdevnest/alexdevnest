@@ -72,7 +72,7 @@
       @apply relative ml-18.75 mt-18  max-w-[calc(100%-4.6875rem)] p-3 min-[360px]:pl-6 min-[460px]:pl-8 min-[560px]:pl-10 bg-background z-10;
   
       #hero {
-        @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6;
+        @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6 min-h-[580px];
   
         .hero {
           @apply z-2 flex-wrap -mt-3 min-[1050px]:w-[40%] min-[1050px]:flex min-[1050px]:flex-col min-[1050px]:justify-center;
@@ -104,7 +104,7 @@
       }
 
       .page-section {
-        @apply min-h-[calc(100vh-72px)] scroll-mt-32 mb-12;
+        @apply scroll-mt-32 mb-32;
   
         .section-intro {
           @apply flex items-center justify-center gap-2 font-extrabold min-[560px]:text-4xl text-3xl max-[350px]:text-2xl mt-0 mb-3;
@@ -116,7 +116,7 @@
       }
   
       #about.page-section {
-        @apply min-[900px]:mb-6;
+        @apply min-[900px]:mb-18;
       }
 
       #about {
@@ -314,7 +314,52 @@
       
       }
 
+      #experience {
+        .experience {
+          @apply flex flex-col gap-6;
+
+          .exp-card,
+          .exp-card .exp-card-header,
+          .exp-card .exp-card-header .exp-meta {
+            @apply flex gap-3;
+          }
+
+          .exp-card {
+            @apply flex-col;
+
+            .text {
+              @apply text-foreground dark:text-foreground/85;
+            }
+
+            .exp-card-header {
+              @apply flex-col w-full;
+
+              .exp-meta {
+                @apply items-center justify-between;
+
+                h3 {
+                  @apply text-2xl font-bold;
+                }
+
+                h4 {
+                  @apply text-primary text-xl;
+                }
+
+                span {
+                  @apply text-lg;
+                }
+              }
+            }
+
+            .exp-tags {
+              @apply flex flex-wrap gap-1;
+            }
+          }
+        }
+      }
+
       #contact {
+        @apply mb-0!;
 
         .contact,
         .contact .contact-links_1,
