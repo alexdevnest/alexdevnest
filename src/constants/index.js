@@ -214,6 +214,21 @@ const SLUGS = [
 ]
 
 
+function getEnvVar(name) {
+  const value = import.meta.env[name];
+
+  if (typeof value !== "string" || value.trim() === "") {
+    throw new Error(`Missing environment variable: ${name}`);
+  }
+
+  return value;
+}
+
+export const getServiceId = () => getEnvVar("VITE_EMAILJS_SERVICE_ID");
+export const getTemplateId = () => getEnvVar("VITE_EMAILJS_TEMPLATE_ID");
+export const getPublicKey = () => getEnvVar("VITE_EMAILJS_PUBLIC_KEY");
+
+
 function getThemeVar(variableName) {
   if (typeof document === "undefined") return ""
 
@@ -231,6 +246,7 @@ const secondaryColor = () => getThemeVar("--secondary")
 const secondaryForegroundColor = () => getThemeVar("--secondary-foreground")
 const mutedColor = () => getThemeVar("--muted")
 const mutedForegroundColor = () => getThemeVar("--muted-foreground")
+const destructiveColor = () => getThemeVar("--destructive")
 const cardColor = () => getThemeVar("--card")
 const cardForegroundColor = () => getThemeVar("--card-foreground")
 const ringColor = () => getThemeVar("--ring")
@@ -273,6 +289,7 @@ export {
   secondaryForegroundColor,
   mutedColor,
   mutedForegroundColor,
+  destructiveColor,
   cardColor,
   cardForegroundColor,
   ringColor,

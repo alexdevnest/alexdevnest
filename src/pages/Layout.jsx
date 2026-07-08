@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { SECTIONS_IDS } from "@constants";
+import { Toaster } from "@ui/sonner"
 import Navbar from "@components/Navbar";
 import Sidebar from "@components/Sidebar";
 import Footer from "@components/Footer";
@@ -51,6 +52,7 @@ export default function Layout ({ children }) {
 
   return (
     <section id="layout">
+      <Toaster />
       <Navbar />
       <Sidebar activeSection={activeSection} />
       <section id="main-container">
