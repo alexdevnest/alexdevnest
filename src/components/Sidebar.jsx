@@ -6,7 +6,7 @@ export default function Sidebar ({ activeSection }) {
     { id: "about", label: "About" },
     { id: "services", label: "Services" },
     { id: "projects", label: "Projects" },
-    { id: "certifications", label: "Certif." },
+    { id: "experience", label: "Exp." },
     { id: "contact", label: "Contact" },
   ]
 

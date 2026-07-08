@@ -21,7 +21,7 @@ const SECTIONS_IDS = [
   "about",
   "services",
   "projects",
-  "certifications",
+  "experience",
   "contact",
   "footer",
 ]
