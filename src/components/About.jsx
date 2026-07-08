@@ -40,19 +40,20 @@ export default function About () {
           </p>
          
           <section className="flex items-center justify-center mt-4">
-            <a
-              href="https://www.credly.com/users/alex-kimari-kirundi/badges/credly"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button
+              asChild
+              variant="outline"
+              className="rounded-lg transition-all duration-500 hover:-translate-y-1"
             >
-              <Button
-                variant="outline"
-                className="rounded-lg cursor-pointer transition-all duration-500 hover:-translate-y-1"
+              <a
+                href="https://www.credly.com/users/alex-kimari-kirundi/badges/credly"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <SiCredly className="inline mr-2 size-8"  />
                 <span className="text-sm">View my Credly Badges</span>
-              </Button>
-            </a>
+              </a>
+            </Button>
           </section>
         </article>
 
