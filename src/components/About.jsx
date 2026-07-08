@@ -7,6 +7,9 @@ import { useMediaQuery } from "@hooks/useMediaQuery";
 import Mark from "./Mark";
 import { accentColor } from "@/constants";
 
+import { SiCredly } from "@icons-pack/react-simple-icons";
+import { Button } from "@ui/button";
+
 
 export default function About () {
   const showStackCloud = useMediaQuery("(min-width: 900px)");
@@ -35,6 +38,22 @@ export default function About () {
           <p className="last-p">
             I also integrate <Mark color={'#0000ff33'}>AWS cloud services</Mark> into development workflows, using cloud infrastructure and deployment tools to improve scalability, <Mark color={'#00ffff66'}>hosting</Mark>, <Mark color={'#51a2ff80'}>storage</Mark>, and overall <Mark color={accentColor()}>application performance</Mark>. This allows me to move beyond simply building websites and toward creating full-stack applications that are production-ready, flexible, and cloud-enabled.
           </p>
+         
+          <section className="flex items-center justify-center mt-4">
+            <a
+              href="https://www.credly.com/users/alex-kimari-kirundi/badges/credly"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant="outline"
+                className="rounded-lg cursor-pointer transition-all duration-500 hover:-translate-y-1"
+              >
+                <SiCredly className="inline mr-2 size-8"  />
+                <span className="text-sm">View my Credly Badges</span>
+              </Button>
+            </a>
+          </section>
         </article>
 
         <div className="tech-stack">
