@@ -3,11 +3,7 @@ import { twMerge } from "tailwind-merge"
 import { z } from "zod";
 
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
-import { toast } from "sonner";
-import {
-  destructiveColor, PUBLIC_KEY,
-  SERVICE_ID, TEMPLATE_ID
-} from "@/constants";
+import { getServiceId, getTemplateId, getPublicKey } from "@constants";
 
 
 export function cn(...inputs) {
@@ -26,7 +22,7 @@ export const messageSchema = z.object({
   title: z
     .string()
     .trim()
-    .min(3, "Title is to short.")
+    .min(5, "Title is too short.")
     .max(50, "Title cannot exceed 50 characters."),
 
   message: z
@@ -36,38 +32,22 @@ export const messageSchema = z.object({
     .max(255, "Message cannot exceed 255 characters.")
 });
 
+
 export const sendMessage = async (payload) => {
   try {
     await emailjs.send(
-      SERVICE_ID,
-      TEMPLATE_ID,
+      getServiceId(),
+      getTemplateId(),
       { ...payload },
-      PUBLIC_KEY
+      { publicKey: getPublicKey() }
     )
-    toast.success("Your message was sent successfully!", {
-      style: {
-        color: '#00ff00cc'
-      },
-      position: 'top-center'
-    })
   }
   catch (e) {
     if (e instanceof EmailJSResponseStatus) {
-      console.error(`EmailJS failed: ${e}`);
-      toast.error("Could not send the message. Please try again later.", {
-        style: {
-          color: destructiveColor()
-        },
-        position: 'bottom-right'
-      })
-      return;
+      console.error(`EmailJS failed to send message: ${e}`);
+      throw e;
     }
     console.error(`An Unexpected problem occured when sending the message: ${e}`);
-    toast.error("Could not send the message. Please try again later.", {
-      style: {
-        color: destructiveColor()
-      },
-      position: 'bottom-center'
-    })
+    throw e;
   }
 }

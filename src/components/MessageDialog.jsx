@@ -74,7 +74,6 @@ export default function DialogDemo() {
   
   const onSubmit = async (e) => {
     e.preventDefault();
-    setIsSending(true)
 
     if (
       !form.name.trim()
@@ -102,9 +101,18 @@ export default function DialogDemo() {
 
     const { name, email, title, message } = result.data;
     const payload = { name, email, title, message }
-
+    
+    setIsSending(true)
     try {
       await sendMessage(payload)
+
+      toast.success("Your message was sent successfully!", {
+        style: {
+          color: '#00ff00cc'
+        },
+        position: 'top-center'
+      })
+
       resetForm();
       closeDialog();
     }
@@ -242,7 +250,10 @@ export default function DialogDemo() {
           </FieldGroup>
           <DialogFooter className="mt-3">
             <DialogClose asChild>
-              <Button variant="outline">Cancel</Button>
+              <Button
+                variant="outline"
+                disabled={ isSending }
+              >Cancel</Button>
             </DialogClose>
             <Button
               type="submit"

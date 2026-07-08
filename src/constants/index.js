@@ -224,9 +224,9 @@ function getEnvVar(name) {
   return value;
 }
 
-const SERVICE_ID = getEnvVar("VITE_EMAILJS_SERVICE_ID");
-const TEMPLATE_ID = getEnvVar("VITE_EMAILJS_TEMPLATE_ID");
-const PUBLIC_KEY = getEnvVar("VITE_EMAILJS_PUBLIC_KEY");
+export const getServiceId = () => getEnvVar("VITE_EMAILJS_SERVICE_ID");
+export const getTemplateId = () => getEnvVar("VITE_EMAILJS_TEMPLATE_ID");
+export const getPublicKey = () => getEnvVar("VITE_EMAILJS_PUBLIC_KEY");
 
 
 function getThemeVar(variableName) {
@@ -280,9 +280,6 @@ export {
   SECTIONS_IDS,
   TECH_STACK,
   SLUGS,
-  SERVICE_ID,
-  TEMPLATE_ID,
-  PUBLIC_KEY,
   backgroundColor,
   accentColor,
   foregroundColor,
