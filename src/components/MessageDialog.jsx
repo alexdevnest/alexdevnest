@@ -13,29 +13,34 @@ import { TbSend2 } from "react-icons/tb";
 import { messageSchema, sendMessage } from "@/lib/utils";
 import { destructiveColor } from "@/constants";
 import { toast } from "sonner";
+import dayjs from "dayjs";
+import advancedFormat from "dayjs/plugin/advancedFormat";
+
+
+dayjs.extend(advancedFormat);
+
+const initialForm = {
+  name: "",
+  email: "",
+  title: "",
+  message: "",
+};
+const initialTouched = {
+  name: false,
+  email: false,
+  title: false,
+  message: false
+};
+const initialErrors = {
+  name: "",
+  email: "",
+  title: "",
+  message: ""
+};
 
 
 export default function DialogDemo() {
   const [ open, setOpen ] = useState(false);
-
-  const initialForm = {
-    name: "",
-    email: "",
-    title: "",
-    message: "",
-  };
-  const initialTouched = {
-    name: false,
-    email: false,
-    title: false,
-    message: false
-  };
-  const initialErrors = {
-    name: "",
-    email: "",
-    title: "",
-    message: ""
-  };
 
   const [ form, setForm ] = useState(initialForm);
   const [ touched, setTouched ] = useState(initialTouched);
@@ -75,16 +80,6 @@ export default function DialogDemo() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !form.name.trim()
-        ||
-      !form.email.trim()
-        ||
-      !form.title.trim()
-        ||
-      !form.message.trim()
-    ) return;
-
     const result = messageSchema.safeParse(form);
 
     if (!result.success) {
@@ -95,12 +90,19 @@ export default function DialogDemo() {
       });
       
       setErrors(fieldErrors);
-      setTouched({ name: true, email: true, title: true, message: true });
+      setTouched(
+        Object.keys(initialTouched).reduce(
+          (acc, key) => ({ ...acc, [key]: true }),
+          {}
+        )
+      );
       return;
     }
 
-    const { name, email, title, message } = result.data;
-    const payload = { name, email, title, message }
+    const payload = {
+      ...result.data,
+      time: dayjs().format("dddd Do MMMM YYYY HH:mm"),
+    }
     
     setIsSending(true)
     try {
@@ -206,7 +208,6 @@ export default function DialogDemo() {
             <Field>
               <Label htmlFor="title">Title</Label>
               <Input
-                type="title"
                 id="title"
                 name="title"
                 placeholder="I'd like to discuss a project."
