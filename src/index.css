@@ -404,7 +404,7 @@
       }
   
       .footer-text {
-        @apply text-sm gap-2 max-[295px]:flex-col max-[295px]:items-center max-[295px]:justify-center max-[295px]:gap-1;
+        @apply text-sm text-foreground/55 gap-2 max-[295px]:flex-col max-[295px]:items-center max-[295px]:justify-center max-[295px]:gap-1;
       }
   
       .footer-links {
