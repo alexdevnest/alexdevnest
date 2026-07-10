@@ -9,10 +9,10 @@ const SectionIntro = ({ title, direction }) => (
       }
     `}
   >
-    <h2>
+    <h1>
       { title }
       <span className="text-primary">.</span>
-    </h2>
+    </h1>
     <span className="inline-block flex-1">
       <hr className="h-1" />
     </span>
