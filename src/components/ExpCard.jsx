@@ -31,10 +31,10 @@ export default function ExpCard ({
 
       <section className="exp-tags">
         {
-          tags.map(
-            (tag,idx) => (
+          (Array.isArray(tags) ? tags : []).map(
+            (tag) => (
               <Badge
-                key={ idx }
+                key={ tag }
                 variant="secondary"
                 className="py-3 px-4 text-[.9rem] transition-all duration-500 opacity-75 hover:opacity-100"
               >
