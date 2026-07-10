@@ -213,6 +213,26 @@ const SLUGS = [
   'upstash',
 ]
 
+const EXP = [
+  {
+    id: 'EXP001',
+    title: "Web Developer",
+    since: 2024,
+    company: "Freelance",
+    location: "Remote",
+    description: "I develop custom web applications and websites for individuals and small businesses, delivering responsive, user-friendly, and scalable solutions tailored to each client's needs. My responsibilities include optimizing application performance, implementing SEO best practices to improve search visibility, integrating third-party services and APIs, and deploying and managing cloud-based solutions using AWS. I also provide ongoing maintenance, security updates, and feature enhancements to ensure every project remains reliable, secure, and up to date.",
+    tags: ['Typescript', 'Javascript', 'React', 'Vue', 'Tailwindcss', 'GSAP', 'Next.js', 'Node.js', 'Express', 'Python', 'Django', 'AWS Cloud Services'],
+  },
+  {
+    id: 'EXP002',
+    title: "AI Developer",
+    since: 2025,
+    company: "Freelance",
+    location: "Remote",
+    description: "I develop AI-powered applications that leverage modern language models and machine learning to deliver intelligent, user-focused solutions. My work involves designing AI-powered workflows, integrating AI capabilities into web applications, optimizing performance for real-time interactions, and deploying scalable services using AWS. I also prioritize prompt engineering, responsible AI practices, data privacy, security, and continuous testing to deliver reliable and high-quality user experiences.",
+    tags: ['AI Prompt Engineering', 'User Behavior Analysis', 'Data Privacy and Security', 'User Testing', 'Performance Analysis', 'Quality Review'],
+  },
+]
 
 function getEnvVar(name) {
   const value = import.meta.env[name];
@@ -280,6 +300,7 @@ export {
   SECTIONS_IDS,
   TECH_STACK,
   SLUGS,
+  EXP,
   backgroundColor,
   accentColor,
   foregroundColor,
