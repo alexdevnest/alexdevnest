@@ -6,7 +6,7 @@ export default function Footer () {
   return (
     <footer id="footer">
       <p className="footer-text">
-        <span>&copy;{`${ year }`}</span>
+        <span>&copy; { year }</span>
         <span>All rights reserved.</span>
       </p>
 

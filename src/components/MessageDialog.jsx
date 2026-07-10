@@ -165,12 +165,16 @@ export default function DialogDemo() {
             <Field>
               <Label htmlFor="name">
                 Name
-                <span className="text-destructive ml-[-0.3em]">*</span>
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
               </Label>
               <Input
                 id="name"
                 name="name"
                 placeholder="Moon Outlaw"
+                aria-required="true"
                 value={ form.name }
                 onChange={ handleChange }
                 onBlur={
@@ -190,12 +194,16 @@ export default function DialogDemo() {
             <Field>
               <Label htmlFor="email">
                 Email
-                <span className="text-destructive ml-[-0.3em]">*</span>
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
               </Label>
               <Input
                 type="email"
                 id="email"
                 name="email"
+                aria-required="true"
                 placeholder="outmoon@gmail.com"
                 value={ form.email }
                 onChange={ handleChange }
@@ -216,12 +224,16 @@ export default function DialogDemo() {
             <Field>
               <Label htmlFor="title">
                 Title
-                <span className="text-destructive ml-[-0.3em]">*</span>
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
               </Label>
               <Input
                 id="title"
                 name="title"
                 placeholder="I'd like to discuss a project."
+                aria-required="true"
                 value={ form.title }
                 onChange={ handleChange }
                 onBlur={
@@ -241,12 +253,16 @@ export default function DialogDemo() {
             <Field>
               <Label htmlFor="message">
                 Message
-                <span className="text-destructive ml-[-0.3em]">*</span>
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
               </Label>
               <Textarea
                 id="message"
                 name="message"
                 placeholder="Project details...."
+                aria-required="true"
                 value={ form.message }
                 onChange={ handleChange }
                 onBlur={

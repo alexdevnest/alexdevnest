@@ -408,7 +408,7 @@
       }
   
       .footer-links {
-        @apply transition-transform duration-500 hover:-translate-y-1;
+        @apply transition-transform duration-500 hover:-translate-y-1 max-[265px]:text-sm;
       }
     }
   
