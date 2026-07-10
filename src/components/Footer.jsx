@@ -6,8 +6,8 @@ export default function Footer () {
   return (
     <footer id="footer">
       <p className="footer-text">
-        &copy;{`${ year } `}
-        All rights reserved.
+        <span>&copy;{ year }</span>
+        <span>All rights reserved.</span>
       </p>
 
       <ul>
@@ -15,7 +15,7 @@ export default function Footer () {
           <Link to="/privacy">Privacy</Link>
         </li>
         <li className="footer-links">
-          <Link to="/legal-notice">Legal Notice</Link>
+          <Link to="/legal-notice">Legal&nbsp;Notice</Link>
         </li>
       </ul>
     </footer>

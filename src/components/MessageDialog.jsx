@@ -163,16 +163,24 @@ export default function DialogDemo() {
         <form onSubmit={ onSubmit }>
           <FieldGroup>
             <Field>
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">
+                Name
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
+              </Label>
               <Input
                 id="name"
                 name="name"
                 placeholder="Moon Outlaw"
+                aria-required="true"
                 value={ form.name }
                 onChange={ handleChange }
                 onBlur={
                   () => setTouched((prev) => ({ ...prev, name: true }))
                 }
+                className="placeholder:opacity-75"
               />
 
               {
@@ -184,17 +192,25 @@ export default function DialogDemo() {
               }
             </Field>
             <Field>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">
+                Email
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
+              </Label>
               <Input
                 type="email"
                 id="email"
                 name="email"
+                aria-required="true"
                 placeholder="outmoon@gmail.com"
                 value={ form.email }
                 onChange={ handleChange }
                 onBlur={
                   () => setTouched((prev) => ({ ...prev, email: true }))
                 }
+                className="placeholder:opacity-75"
               />
 
               {
@@ -206,16 +222,24 @@ export default function DialogDemo() {
               }
             </Field>
             <Field>
-              <Label htmlFor="title">Title</Label>
+              <Label htmlFor="title">
+                Title
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
+              </Label>
               <Input
                 id="title"
                 name="title"
                 placeholder="I'd like to discuss a project."
+                aria-required="true"
                 value={ form.title }
                 onChange={ handleChange }
                 onBlur={
                   () => setTouched((prev) => ({ ...prev, title: true }))
                 }
+                className="placeholder:opacity-75"
               />
 
               {
@@ -227,17 +251,24 @@ export default function DialogDemo() {
               }
             </Field>
             <Field>
-              <Label htmlFor="message">Message</Label>
+              <Label htmlFor="message">
+                Message
+                <span
+                  className="text-destructive ml-[-0.3em]"
+                  aria-hidden="true"
+                >*</span>
+              </Label>
               <Textarea
                 id="message"
                 name="message"
                 placeholder="Project details...."
+                aria-required="true"
                 value={ form.message }
                 onChange={ handleChange }
                 onBlur={
                   () => setTouched((prev) => ({ ...prev, message: true }))
                 }
-                className="h-32 overflow-auto"
+                className="h-32 overflow-auto placeholder:opacity-75"
               />
 
               {
