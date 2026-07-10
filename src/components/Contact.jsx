@@ -13,30 +13,40 @@ export default function Contact () {
       <SectionIntro title="Contact" />
 
       <article className="contact">
-        <section>
+        <section className="text-foreground dark:text-foreground/85">
           <p>
             Have an idea you want to discuss, or a potential collaboration?
           </p>
           <p>
-            Send me an email! Or you can also find me on LinkedIn.
+            Send me an email! &nbsp;
+            <br className="min-[380px]:hidden" />
+            Or you can also find me on <a href="https://www.linkedin.com/in/alex-kimari-80096027a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-primary hover:text-primary/80 transition-colors duration-300">
+            LinkedIn
+            </a>.
           </p>
         </section>
 
         <section className="contact-links_1">
-          <a
-            href="mailto:officialalex236@gmail.com"
-            className="flex gap-1.5 items-center hover:text-primary"
-          >
-            <AiFillMail className="inline size-6 max-[351px]:size-4" />
-            officialalex236@gmail.com
-          </a>
-          <Link
-            to="/schedule-meeting"
-            className="flex gap-1.5 items-center transition-colors duration-300 text-primary hover:text-primary/80"
-          >
-            <FaCalendar className="inline size-5 max-[351px]:size-4" />
-            Set up a meeting
-          </Link>
+          <div>
+            <a
+              href="mailto:officialalex236@gmail.com"
+              className="flex gap-1.5 transition-colors duration-300 text-foreground dark:text-foreground/85 items-center hover:text-primary dark:hover:text-primary"
+            >
+              <AiFillMail className="inline size-6 max-[351px]:size-4" />
+              officialalex236@gmail.com
+            </a>
+
+            <Link
+              to="/schedule-meeting"
+              className="flex gap-1.5 items-center transition-colors duration-300 text-primary hover:text-primary/80 ml-3"
+            >
+              <FaCalendar className="inline size-5 max-[351px]:size-4" />
+              Set up a meeting
+            </Link>
+          </div>
         </section>
 
         <section className="contact-links_2">

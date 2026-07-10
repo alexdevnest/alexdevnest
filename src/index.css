@@ -72,7 +72,7 @@
       @apply relative ml-18.75 mt-18  max-w-[calc(100%-4.6875rem)] p-3 min-[360px]:pl-6 min-[460px]:pl-8 min-[560px]:pl-10 bg-background z-10;
   
       #hero {
-        @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6 min-h-[580px];
+        @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6 min-h-[580px] flex items-center;
   
         .hero {
           @apply z-2 flex-wrap -mt-3 min-[1050px]:w-[40%] min-[1050px]:flex min-[1050px]:flex-col min-[1050px]:justify-center;
@@ -338,15 +338,15 @@
                 @apply items-center justify-between;
 
                 h3 {
-                  @apply text-2xl font-bold;
+                  @apply text-2xl font-bold max-[460px]:text-xl;
                 }
 
                 h4 {
-                  @apply text-primary text-xl;
+                  @apply text-primary text-xl max-[460px]:text-lg;
                 }
 
                 span {
-                  @apply text-lg;
+                  @apply min-[460px]:text-lg;
                 }
               }
             }
@@ -372,7 +372,11 @@
         }
 
         .contact .contact-links_1 {
-          @apply gap-2 max-[351px]:gap-1 max-[305px]:text-xs;
+          @apply max-[305px]:text-xs;
+
+          div {
+            @apply flex flex-col items-start gap-2 max-[351px]:gap-1;
+          }
         }
 
         .contact .contact-links_2 {

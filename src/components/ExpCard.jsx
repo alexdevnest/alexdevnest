@@ -16,7 +16,7 @@ export default function ExpCard ({
         <div className="exp-meta">
           <h3 className="text">{ title }</h3>
           <span className="text">
-            Since { since }
+            Since&nbsp;{ since }
           </span>
         </div>
         <div className="exp-meta">
