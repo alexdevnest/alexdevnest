@@ -13,7 +13,9 @@ export const PROJECTS = [
     live_link: "",
     details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatum itaque corporis consectetur fugit reiciendis? Harum, maiores error! Eius dolor qui consectetur, iste dolore sapiente adipisci? Nulla hic saepe nisi.",
     tags: "React, Tailwind, Vite",
-    img_preview: portfolio_prev
+    img_preview: portfolio_prev,
+    category: "Frontend",
+    favorite: true
   },
   {
     id: 'PROJECT002',
@@ -22,7 +24,9 @@ export const PROJECTS = [
     live_link: "",
     details: "Elev8 is a platform aiming to discover new talents and give them a stage to grow.",
     tags: "React, Tailwind, Vite, Lovable",
-    img_preview: elev8_prev
+    img_preview: elev8_prev,
+    category: "Fullstack",
+    favorite: true
   },
   {
     id: 'PROJECT003',
@@ -31,7 +35,9 @@ export const PROJECTS = [
     live_link: "",
     details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatum itaque corporis consectetur fugit reiciendis? Harum, maiores error! Eius dolor qui consectetur, iste dolore sapiente adipisci? Nulla hic saepe nisi.",
     tags: "React, Tailwind, Vite",
-    img_preview: fandrop_prev
+    img_preview: fandrop_prev,
+    category: "Fullstack",
+    favorite: true
   },
   {
     id: 'PROJECT004',
@@ -40,7 +46,9 @@ export const PROJECTS = [
     live_link: "",
     details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatum itaque corporis consectetur fugit reiciendis? Harum, maiores error! Eius dolor qui consectetur, iste dolore sapiente adipisci? Nulla hic saepe nisi.",
     tags: "React, Tailwind, Vite, Lovable, Motion",
-    img_preview: launchpad_prev
+    img_preview: launchpad_prev,
+    category: "Frontend",
+    favorite: true
   },
   {
     id: 'PROJECT005',
@@ -49,6 +57,8 @@ export const PROJECTS = [
     live_link: "",
     details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatum itaque corporis consectetur fugit reiciendis? Harum, maiores error! Eius dolor qui consectetur, iste dolore sapiente adipisci? Nulla hic saepe nisi.",
     tags: "React, Tailwind, Vite, Lovable, Motion",
-    img_preview: skyvoyage_prev
+    img_preview: skyvoyage_prev,
+    category: "Frontend",
+    favorite: true
   },
 ]
