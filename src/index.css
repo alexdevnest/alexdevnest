@@ -478,7 +478,35 @@
     }
   }
 
-  /* Privacy Policy page */
+  #privacy-page{
+    @apply min-h-screen max-w-screen overflow-x-hidden p-4 pt-0;
+
+    #privacy {
+      @apply max-w-screen-sm mx-auto pt-32 flex flex-col gap-12 mb-12;
+
+      .privacy-title {
+        @apply font-bold text-2xl;
+      }
+
+      ul {
+        @apply flex flex-col gap-1;
+      }
+
+      .collected_info {
+        h3 {
+          @apply font-bold text-lg;
+        }
+      }
+
+      .privacy_contact {
+        a {
+          @apply transition-colors duration-300 text-blue-400/80 hover:text-blue-400 max-[320px]:text-sm max-[282px]:text-xs;
+        }
+      }
+
+    }
+
+  }
 
   /* Legal notice page */
   
