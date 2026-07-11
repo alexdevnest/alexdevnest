@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { RxExternalLink } from "react-icons/rx";
-import Tooltips from "./Tooltip";
+import Tooltips from "../Tooltip";
+
+import { cn } from "@lib/utils";
 
 
 export default function ProjectCard ({
@@ -12,12 +14,24 @@ export default function ProjectCard ({
   details,
   tags,
   img_preview,
+  hideDetails,
 }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/projects/${id}`)
+  }
+
   const formattedTags = tags?.split(", ").join(" - ") ?? ""
+  const hide = hideDetails ? 'hidden' : ''
 
   return (
     <article className="project-card">
-      <section className="card-header">
+      <section
+        className="card-header"
+        onClick={ handleClick }
+        aria-label="Click to go to page details"
+      >
         <img
           src={ img_preview || null }
           alt={`An image of the ${name || ''} project`}
@@ -67,7 +81,7 @@ export default function ProjectCard ({
           </span>
         </p>
 
-        <div className="project-details">
+        <div className={ cn("project-details", hide) }>
           <p className="details">
             { details || '' }
           </p>

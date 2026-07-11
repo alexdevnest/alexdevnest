@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import SectionIntro from "./SectionIntro";
 import { ArrowRight } from "lucide-react";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "@projects/ProjectCard";
 import { PROJECTS } from "@/constants/mock-data";
 
 
