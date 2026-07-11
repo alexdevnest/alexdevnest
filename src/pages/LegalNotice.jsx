@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
-import SectionIntro from '@components/SectionIntro';
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
+import SectionIntro from '@components/SectionIntro';
 import { cn } from "@lib/utils";
-import { GoArrowLeft } from "react-icons/go";
 import { AiFillMail } from "react-icons/ai";
 import Footer from "@components/Footer";
+import { GoHome } from "@components/GoTo";
 
 
 dayjs.extend(advancedFormat);
@@ -24,15 +23,7 @@ const lastUpdate = dayjs(_lastUpdate).format('dddd, Do MMMM YYYY');
 export default function LegalNotice () {  
   return (
     <main id="legal-page">
-      <section className="go-home-nav">
-        <Link
-          to="/"
-          className="go-home-link"
-        >
-          <GoArrowLeft className="icon" />
-          <span>Go to Home</span>
-        </Link>
-      </section>
+      <GoHome />
 
       <section id="legal">
         <SectionIntro title="Legal Notice" direction="reverse" />
