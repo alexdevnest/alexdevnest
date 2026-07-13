@@ -478,7 +478,7 @@
     }
   }
 
-  #legal-page{
+  #legal-page {
     @apply min-h-screen max-w-screen overflow-x-hidden p-4 pt-0;
     
     #legal {
@@ -515,7 +515,7 @@
 
   }
   
-  #privacy-page{
+  #privacy-page {
     @apply min-h-screen max-w-screen overflow-x-hidden p-4 pt-0;
 
     #privacy {
