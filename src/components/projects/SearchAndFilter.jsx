@@ -5,6 +5,8 @@ import { Input } from "@ui/input";
 import { GrFavorite } from "react-icons/gr";
 import { Badge } from "@ui/badge";
 
+import { cn } from "@lib/utils";
+
 
 const CATEGORIES = [
   "ALL",
@@ -26,37 +28,27 @@ const TAGS = [
 ]
 
 
-const filter__and__search = "m-6 mb-12 flex flex-col gap-3 p-3 border rounded-xl bg-muted"
-
-const search__bar = "flex items-center gap-2 max-[360px]:gap-1"
-const search = "flex items-center flex-1 border rounded-lg bg-background"
-const search_icon_btn = "px-3 bg-transparent hover:bg-transparent!"
-const search__input = "border-none focus-visible:ring-0 rounded-none focus-visible:border-none bg-transparent! placeholder:opacity-65 max-[520px]:text-sm max-[420px]:placeholder:text-xs autofill:bg-transparent!"
-const filter__btns = "flex items-center bg-muted p-1 gap-0.5 rounded-lg"
-const filter_btn = "cursor-pointer transition-all! duration-500! font-mono p-2 px-4 text-primary bg-transparent hover:bg-primary hover:text-white hover:dark:text-foreground max-[520px]:p-2 max-[420px]:p-1"
-
-const filters = "flex flex-col gap-2"
-
-const responsive = "max-[420px]:gap-1"
-
-const category_filters = `flex gap-2 flex-wrap ${responsive}`
-const category_badges = "transition-all! duration-500! cursor-pointer font-mono text-xs p-3 hover:bg-primary"
-
-const tag_filters = `flex gap-2 flex-wrap ${responsive}`
-const tag_badges = "transition-all! duration-500! cursor-pointer font-mono text-xs p-3 hover:bg-orange-400/75"
-
-
 export default function SearchAndFilter () {
-  const [ searchText, setSearchText ] = useState("")
+  const [ searchText, setSearchText ] = useState("");
+  const [ activeView, setActiveView ] = useState("favorite");
+  const [ activeCategory, setActiveCategory ] = useState("ALL");
+  const [ activeTag, setActiveTag ] = useState("ALL");
+
+  const viewBtnClass = (view) =>
+    cn("filter-btn",
+      activeView === view
+        ? 'bg-primary hover:bg-primary text-white dark:text-foreground!'
+        : 'text-primary/80 bg-transparent hover:bg-inherit hover:text-primary'
+    );
 
   return (
-    <header className={filter__and__search}>
-      <section className={search__bar}>
-        <div className={search}>
+    <header className="search-and-filter">
+      <section className="search-bar">
+        <div className="search">
           <Button
             variant="ghost"
             size="icon"
-            className={ search_icon_btn }
+            className="search-icon-btn"
           >
             <Search className="opacity-65" />
           </Button>
@@ -67,29 +59,58 @@ export default function SearchAndFilter () {
             value={ searchText }
             placeholder="Name, React, Fullstack..."
             onChange={ (e) => setSearchText(e.target.value) }
-            className={search__input}
+            className="search-input"
           />
         </div>
 
-        <div className={filter__btns}>
-          <Button className={ filter_btn }>
+        <div className="filter-btns">
+          <Button 
+            onClick={
+              () => setActiveView('favorite')
+            }
+            className={ viewBtnClass('favorite') }
+          >
             <GrFavorite />
           </Button>
-          <Button className={filter_btn}>
+          <Button 
+            onClick={
+              () => setActiveView('all')
+            }
+            className={ viewBtnClass('all') }
+          >
             ALL
           </Button>
         </div>
       </section>
 
-      <section className={filters}>
-        <section className={category_filters}>
+      <section className="filters">
+        <section className="category-filters">
           {
             CATEGORIES.map(
               (category) => (
                 <Badge
+                  role="button"
                   variant="outline"
+                  tabIndex={0}
                   key={ category }
-                  className={category_badges}
+                  onClick={
+                    () => setActiveCategory(category)
+                  }
+                  onKeyDown={
+                    (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveCategory(category);
+                      }
+                    }
+                  }
+                  className={
+                    cn("category-badges",
+                      activeCategory === category
+                        ? 'bg-primary'
+                        : 'hover:text-primary hover:border-primary'
+                    )
+                  }
                 >
                   { category }
                 </Badge>
@@ -98,14 +119,33 @@ export default function SearchAndFilter () {
           }
         </section>
 
-        <section className={tag_filters}>
+        <section className="tag-filters">
           {
             TAGS.map(
               (tag) => (
                 <Badge
+                  role="button"
+                  tabIndex={0}
                   variant="outline"
                   key={ tag }
-                  className={tag_badges}
+                  onClick={
+                    () => setActiveTag(tag)
+                  }
+                  onKeyDown={
+                    (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveTag(tag);
+                      }
+                    }
+                  }
+                  className={
+                    cn("tag-badges",
+                      activeTag === tag
+                        ? 'bg-foreground text-white dark:text-black'
+                        : 'hover:border-foreground'
+                    )
+                  }
                 >
                   { tag }
                 </Badge>

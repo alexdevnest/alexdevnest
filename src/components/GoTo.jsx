@@ -2,6 +2,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 
 
+const GoTo = ({ path, name }) => (
+  <section className="go-nav">
+    <Link
+      to={ path }
+      className="go-link"
+    >
+      <GoArrowLeft className="icon" />
+      <span>{ name }</span>
+    </Link>
+  </section>
+)
+
+
+
 const GoHome = () => (
   <section className="go-home-nav">
     <Link
@@ -37,6 +51,7 @@ const GoBack = () => {
 
 
 export {
+  GoTo,
   GoHome,
   GoBack
 }

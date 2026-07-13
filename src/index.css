@@ -57,10 +57,12 @@
     @apply flex items-center justify-center gap-2 font-extrabold min-[560px]:text-4xl text-3xl max-[350px]:text-2xl mt-0 mb-3;
   }
 
+  .go-nav,
   .go-home-nav,
   .go-back-nav {
     @apply p-4 fixed top-0 left-0 right-0 backdrop-blur-sm;
 
+    .go-link,
     .go-home-link,
     .go-back-link {
       @apply inline text-primary/85 hover:text-primary transition-all duration-300;
@@ -477,6 +479,61 @@
 
     }
   }
+  
+  #projects-page {
+    @apply p-3;
+
+    .search-and-filter {
+      @apply mx-6 mt-18 mb-12 flex flex-col gap-3 p-3 border rounded-xl bg-muted;
+
+      .search-bar {
+        @apply flex items-center gap-2 max-[360px]:gap-1;
+
+        .search {
+          @apply flex items-center flex-1 border rounded-lg bg-background;
+
+          &:focus-within {
+            @apply border-ring ring-2 ring-ring/50;
+          }
+
+          .search-icon-btn {
+            @apply px-3 cursor-pointer bg-transparent hover:bg-transparent!;
+          }
+
+          .search-input {
+            @apply border-none focus-visible:ring-0! rounded-none focus-visible:border-none! bg-transparent! placeholder:opacity-65 max-[520px]:text-sm max-[420px]:placeholder:text-xs autofill:bg-transparent!;
+          }
+        }
+
+        .filter-btns {
+          @apply flex items-center bg-background p-0.5 rounded-lg;
+
+          .filter-btn {
+            @apply cursor-pointer transition-all! duration-500! font-mono p-2 px-6! max-[520px]:p-2! max-[420px]:p-1!;
+          }
+        }
+      }
+
+      .filters {
+        @apply flex flex-col gap-2;
+
+        .category-filters,
+        .tag-filters {
+          @apply flex gap-2 flex-wrap max-[420px]:gap-1;
+        }
+
+        .category-badges,
+        .tag-badges {
+          @apply transition-all! duration-500! cursor-pointer font-mono text-xs p-2.5!;
+        }
+
+      }
+    }
+
+    .projects-grid {
+      @apply mx-12 grid gap-8 min-[600px]:grid-cols-2 min-[835px]:grid-cols-3 min-[1024px]:grid-cols-4;
+    }
+  }
 
   #legal-page {
     @apply min-h-screen max-w-screen overflow-x-hidden p-4 pt-0;
@@ -805,6 +862,7 @@
   --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
   --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 }
+
 
 
 /* Sunset Horizon theme */
