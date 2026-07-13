@@ -494,7 +494,20 @@
 
       .legal_contact {
         a {
-          @apply transition-colors duration-300 text-blue-400/80 hover:text-blue-400 max-[320px]:text-sm max-[282px]:text-xs;
+          @apply transition-colors duration-300 text-blue-400/80;
+
+          &:hover {
+            @apply text-blue-400;
+          }
+
+          @media (width <= 320px) {
+            @apply text-sm;
+          }
+
+          @media (width <= 282px) {
+            @apply text-xs;
+          }
+          
         }
       }
 

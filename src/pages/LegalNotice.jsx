@@ -16,8 +16,7 @@ const LegalArticle = ({ className, title, children }) => (
   </article>
 )
 
-const _lastUpdate = new Date('2026-07-10');
-const lastUpdate = dayjs(_lastUpdate).format('dddd, Do MMMM YYYY');
+const lastUpdate = dayjs('2026-07-10').format('dddd, Do MMMM YYYY');
 
 
 export default function LegalNotice () {  
