@@ -5,6 +5,7 @@ import Projects from "@pages/Projects";
 import Meeting from "@pages/Meeting";
 import PrivacyPolicy from "@pages/PrivacyPolicy";
 import LegalNotice from "@pages/LegalNotice";
+import ProjectDetails from "@pages/ProjectDetails";
 
 
 export default function App () {
@@ -21,6 +22,10 @@ export default function App () {
       <Route
         path="/projects"
         element={ <Projects /> }
+      />
+      <Route
+        path="/projects/:id"
+        element={ <ProjectDetails /> }
       />
       <Route
         path="/schedule-meeting"
