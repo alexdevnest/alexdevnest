@@ -2,17 +2,16 @@ import SearchAndFilter from "@projects/SearchAndFilter";
 import ProjectCard from "@projects/ProjectCard";
 import Footer from "@components/Footer";
 import { PROJECTS } from "@constants/mock-data";
-
-
-const projects_container = "mx-12 grid gap-8 min-[600px]:grid-cols-2 min-[835px]:grid-cols-3 min-[1024px]:grid-cols-4"
+import { GoBack } from "@/components/GoTo";
 
 
 export default function Projects () {
   return (
-    <section className="p-3" id="projects-page">
+    <section id="projects-page">
+      <GoBack />
       <SearchAndFilter />
 
-      <section className={projects_container}>
+      <section className="projects-grid">
         {
           PROJECTS.map(
             (project) => (
