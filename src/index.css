@@ -478,7 +478,44 @@
     }
   }
 
-  #privacy-page{
+  #legal-page {
+    @apply min-h-screen max-w-screen overflow-x-hidden p-4 pt-0;
+    
+    #legal {
+      @apply max-w-screen-sm mx-auto pt-32 flex flex-col gap-12 mb-12;
+
+      .legal-title {
+        @apply font-bold text-2xl;
+      }
+
+      ul {
+        @apply flex flex-col gap-1;
+      }
+
+      .legal_contact {
+        a {
+          @apply transition-colors duration-300 text-blue-400/80;
+
+          &:hover {
+            @apply text-blue-400;
+          }
+
+          @media (width <= 320px) {
+            @apply text-sm;
+          }
+
+          @media (width <= 282px) {
+            @apply text-xs;
+          }
+          
+        }
+      }
+
+    }
+
+  }
+  
+  #privacy-page {
     @apply min-h-screen max-w-screen overflow-x-hidden p-4 pt-0;
 
     #privacy {
@@ -520,8 +557,6 @@
     }
 
   }
-
-  /* Legal notice page */
   
   #footer {
     @apply flex flex-col gap-2 items-center justify-between min-[500px]:flex-row;
