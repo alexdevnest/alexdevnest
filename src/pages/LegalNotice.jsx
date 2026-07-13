@@ -4,7 +4,7 @@ import SectionIntro from '@components/SectionIntro';
 import { cn } from "@lib/utils";
 import { AiFillMail } from "react-icons/ai";
 import Footer from "@components/Footer";
-import { GoHome } from "@components/GoTo";
+import { GoBack } from "@components/GoTo";
 
 
 dayjs.extend(advancedFormat);
@@ -22,7 +22,7 @@ const lastUpdate = dayjs('2026-07-10').format('dddd, Do MMMM YYYY');
 export default function LegalNotice () {  
   return (
     <main id="legal-page">
-      <GoHome />
+      <GoBack />
 
       <section id="legal">
         <SectionIntro title="Legal Notice" direction="reverse" />

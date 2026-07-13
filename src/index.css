@@ -57,13 +57,9 @@
     @apply flex items-center justify-center gap-2 font-extrabold min-[560px]:text-4xl text-3xl max-[350px]:text-2xl mt-0 mb-3;
   }
 
-  .go-nav,
-  .go-home-nav,
   .go-back-nav {
     @apply p-4 fixed top-0 left-0 right-0 backdrop-blur-sm;
 
-    .go-link,
-    .go-home-link,
     .go-back-link {
       @apply inline text-primary/85 hover:text-primary transition-all duration-300;
 
@@ -92,7 +88,7 @@
       @apply relative ml-18.75 mt-18  max-w-[calc(100%-4.6875rem)] p-3 min-[360px]:pl-6 min-[460px]:pl-8 min-[560px]:pl-10 bg-background z-10;
   
       #hero {
-        @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6 min-h-[580px] flex items-center;
+        @apply mt-6 min-[1050px]:flex min-[1050px]:mt-0 min-[1050px]:scroll-mt-6 min-h-145 flex items-center;
   
         .hero {
           @apply z-2 flex-wrap -mt-3 min-[1050px]:w-[40%] min-[1050px]:flex min-[1050px]:flex-col min-[1050px]:justify-center;

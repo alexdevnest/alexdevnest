@@ -1,45 +1,33 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 
 
-const GoTo = ({ path, name }) => (
-  <section className="go-nav">
-    <Link
-      to={ path }
-      className="go-link"
-    >
-      <GoArrowLeft className="icon" />
-      <span>{ name }</span>
-    </Link>
-  </section>
-)
-
-
-
-const GoHome = () => (
-  <section className="go-home-nav">
-    <Link
-      to="/"
-      className="go-home-link"
-    >
-      <GoArrowLeft className="icon" />
-      <span>Go to Home</span>
-    </Link>
-  </section>
-)
-
-
-const GoBack = () => {
+export const GoBack = () => {
   const navigate = useNavigate();
   
   const handleGoBack = () => {
-    navigate(-1)
-  }
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate("/", { replace: true });
+    }
+  };
+
 
   return (
     <section className="go-back-nav">
       <span
+        role="button"
+        tabIndex={0}
         onClick={ handleGoBack }
+        onKeyDown={
+          (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault()
+              handleGoBack()
+            }
+          }
+        }
         className="go-back-link cursor-pointer"
       >
         <GoArrowLeft className="icon" />
@@ -47,11 +35,4 @@ const GoBack = () => {
       </span>
     </section>
   )
-}
-
-
-export {
-  GoTo,
-  GoHome,
-  GoBack
 }
