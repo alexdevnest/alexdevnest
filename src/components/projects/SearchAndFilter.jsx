@@ -34,6 +34,12 @@ export default function SearchAndFilter () {
   const [ activeCategory, setActiveCategory ] = useState("ALL");
   const [ activeTag, setActiveTag ] = useState("ALL");
 
+  const viewBtnClass = (view) =>
+    cn("filter-btn",
+      activeView === view
+        ? 'bg-primary hover:bg-primary text-white dark:text-foreground!'
+        : 'text-primary/80 bg-transparent hover:bg-inherit hover:text-primary'
+    );
 
   return (
     <header className="search-and-filter">
@@ -62,13 +68,7 @@ export default function SearchAndFilter () {
             onClick={
               () => setActiveView('favorite')
             }
-            className={
-              cn("filter-btn",
-                activeView === 'favorite'
-                  ? 'bg-primary hover:bg-primary text-white dark:text-foreground!'
-                  : 'text-primary/80 bg-transparent hover:bg-inherit hover:text-primary'
-              )
-            }
+            className={ viewBtnClass('favorite') }
           >
             <GrFavorite />
           </Button>
@@ -76,13 +76,7 @@ export default function SearchAndFilter () {
             onClick={
               () => setActiveView('all')
             }
-            className={
-              cn("filter-btn",
-                activeView === 'all'
-                  ? 'bg-primary hover:bg-primary text-white dark:text-foreground!'
-                  : 'text-primary/80 bg-transparent hover:bg-inherit hover:text-primary'
-              )
-            }
+            className={ viewBtnClass('all') }
           >
             ALL
           </Button>
@@ -95,10 +89,20 @@ export default function SearchAndFilter () {
             CATEGORIES.map(
               (category) => (
                 <Badge
+                  role="button"
                   variant="outline"
+                  tabIndex={0}
                   key={ category }
                   onClick={
                     () => setActiveCategory(category)
+                  }
+                  onKeyDown={
+                    (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveCategory(category);
+                      }
+                    }
                   }
                   className={
                     cn("category-badges",
@@ -120,10 +124,20 @@ export default function SearchAndFilter () {
             TAGS.map(
               (tag) => (
                 <Badge
+                  role="button"
+                  tabIndex={0}
                   variant="outline"
                   key={ tag }
                   onClick={
                     () => setActiveTag(tag)
+                  }
+                  onKeyDown={
+                    (e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setActiveTag(tag);
+                      }
+                    }
                   }
                   className={
                     cn("tag-badges",

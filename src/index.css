@@ -492,12 +492,16 @@
         .search {
           @apply flex items-center flex-1 border rounded-lg bg-background;
 
+          &:focus-within {
+            @apply border-ring ring-2 ring-ring/50;
+          }
+
           .search-icon-btn {
-            @apply px-3 bg-transparent hover:bg-transparent!;
+            @apply px-3 cursor-pointer bg-transparent hover:bg-transparent!;
           }
 
           .search-input {
-            @apply border-none focus-visible:ring-0 rounded-none focus-visible:border-none bg-transparent! placeholder:opacity-65 max-[520px]:text-sm max-[420px]:placeholder:text-xs autofill:bg-transparent!;
+            @apply border-none focus-visible:ring-0! rounded-none focus-visible:border-none! bg-transparent! placeholder:opacity-65 max-[520px]:text-sm max-[420px]:placeholder:text-xs autofill:bg-transparent!;
           }
         }
 
@@ -520,7 +524,7 @@
 
         .category-badges,
         .tag-badges {
-          @apply transition-all! duration-500! cursor-pointer font-mono text-xs p-3;
+          @apply transition-all! duration-500! cursor-pointer font-mono text-xs p-2.5!;
         }
 
       }
