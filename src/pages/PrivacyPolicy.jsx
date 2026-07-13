@@ -16,8 +16,7 @@ const PrivacyArticle = ({ className, title, children }) => (
   </article>
 )
 
-const _lastUpdate = new Date('2026-07-10');
-const lastUpdate = dayjs(_lastUpdate).format('dddd, Do MMMM YYYY');
+const lastUpdate = dayjs('2026-07-10').format('dddd, Do MMMM YYYY');
 
 
 export default function PrivacyPolicy () {  
@@ -48,6 +47,8 @@ export default function PrivacyPolicy () {
           <ul>
             <li>👉 Your name</li>
             <li>👉 Your email address</li>
+            <li>👉 The title or subject of your message</li>
+            <li>👉 The message content you send</li>
           </ul>
 
           <p>
@@ -92,7 +93,7 @@ export default function PrivacyPolicy () {
 
         <PrivacyArticle title="Third-Party Services">
           <p>
-            This website may use third-party services to help operate certain features, such as hosting, email delivery, analytics, or form handling. These services may process your information only as necessary to provide their functionality.
+            This website may use third-party services to help operate certain features, such as hosting, email delivery, analytics, or form handling. Contact form submissions are handled through EmailJS, which processes the information you submit through the form, including your name, email address, title, and message, so that I can receive and respond to your inquiry. These services may process your information only as necessary to provide their functionality.
           </p>
         </PrivacyArticle>
 
