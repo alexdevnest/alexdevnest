@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 
+import { cn } from "@lib/utils"
 
-export const GoBack = () => {
+
+export const GoBack = ({ className }) => {
   const navigate = useNavigate();
   
   const handleGoBack = () => {
@@ -15,7 +17,7 @@ export const GoBack = () => {
 
 
   return (
-    <section className="go-back-nav">
+    <section className={cn("go-back-nav", className)}>
       <span
         role="button"
         tabIndex={0}
