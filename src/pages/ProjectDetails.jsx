@@ -1,9 +1,9 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { GoBack } from "@components/GoTo";
-import Tooltips from "@components/Tooltip";
 import { FaGithub } from "react-icons/fa";
 import { RxExternalLink } from "react-icons/rx";
 import Footer from "@components/Footer";
+import LinkButton from "@components/projects/LinkButton";
 
 
 import { PROJECTS } from "@constants/mock-data";
@@ -16,36 +16,34 @@ export default function ProjectDetails () {
     (p) => p.id === id
   )
 
+  if (!project)
+    return <Navigate to="/projects" replace />
+
+
   const formattedTags = project.tags
     .split(', ')
     .join(' - ')
-
+  
   
   return (
     <>
       <main id="project-details-page">
-        <GoBack 
-          className="right-auto top-2 left-2 rounded p-2"
-        />
+        <GoBack className="right-auto top-2 left-2 rounded p-2" />
         <section className="project-banner">
           <img
-            src={ project.img_preview }
+            src={project.img_preview}
             alt={`Project ${project.name} preview image.`}
           />
         </section>
 
         <section className="project-data">
           <article className="project_meta">
-            <h1>{ project.name }</h1>
+            <h1>{project.name}</h1>
 
-            <p>
-              { formattedTags }
-            </p>
+            <p>{formattedTags}</p>
           </article>
 
-          <article>
-            { project.details }
-          </article>
+          <article>{project.details}</article>
 
           <article className="project_links">
             <h2>
@@ -54,39 +52,23 @@ export default function ProjectDetails () {
             </h2>
 
             <div>
-              <Tooltips content="Github Repo" side="left">
-                <a
-                  href={ project.github_link || null }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="View project github repo"
-                  className="cursor-pointer transition-all duration-300 text-primary/85 hover:text-primary"
-                  tabIndex={0}
-                >
-                  <FaGithub
-                    className="inline mr-1"
-                    size={18}
-                  />
-                  Code
-                </a>
-              </Tooltips>
+              <LinkButton
+                href={project.github_link}
+                icon={FaGithub}
+                ariaLabel="View project GitHub repository"
+                unavailableLabel="GitHub repository unavailable"
+              >
+                Code
+              </LinkButton>
 
-              <Tooltips content="Live Preview" side="right">
-                <a
-                  href={ project.live_link || null }
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Open deployed project link"
-                  className="cursor-pointer transition-all duration-300 text-primary/85 hover:text-primary"
-                  tabIndex={0}
-                >
-                  <RxExternalLink
-                    className="inline mr-1"
-                    size={18}
-                  />
-                  Demo
-                </a>
-              </Tooltips>
+              <LinkButton
+                href={project.live_link}
+                icon={RxExternalLink}
+                ariaLabel="Open deployed project"
+                unavailableLabel="Live demo unavailable"
+              >
+                Demo
+              </LinkButton>
             </div>
           </article>
         </section>
