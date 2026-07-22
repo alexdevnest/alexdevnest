@@ -7,6 +7,7 @@ import PrivacyPolicy from "@pages/PrivacyPolicy";
 import LegalNotice from "@pages/LegalNotice";
 import ProjectDetails from "@pages/ProjectDetails";
 import { ScrollToTop } from "@components/ScrollTop";
+import Admin from "@pages/Admin";
 
 
 export default function App () {
@@ -42,6 +43,10 @@ export default function App () {
         <Route
           path="/legal-notice"
           element={ <LegalNotice /> }
+        />
+        <Route
+          path="/app/core"
+          element={ <Admin /> }
         />
       </Routes>
     </>
