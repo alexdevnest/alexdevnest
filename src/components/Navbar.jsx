@@ -38,16 +38,16 @@ export default function Navbar () {
         </div>
 
         <div className="">
-            <Tooltips content="Open my CV" side="left">
-              <Button
-                asChild
-                variant="outline"
-                className="icons-s font-bold text-[1.1rem] p-3 tracking-[.11em] transition-all duration-800"
-                aria-label="Open CV"
-              >
-                <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
-              </Button>
-            </Tooltips>
+          <Tooltips content="Open my CV" side="left">
+            <Button
+              asChild
+              variant="outline"
+              className="icons-s font-bold text-[1.1rem] p-3 tracking-[.11em] transition-all duration-800"
+              aria-label="Open CV"
+            >
+              <a href="/cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+            </Button>
+          </Tooltips>
           <ThemeToggle />
         </div>
       </section>

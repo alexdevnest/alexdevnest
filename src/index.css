@@ -672,6 +672,135 @@
     }
   }
 
+  #admin-page {
+    @apply relative;
+
+    nav {
+      @apply p-3 bg-muted/70 z-10 sticky top-0 left-0 right-0 backdrop-blur-xs;
+
+      .nav-section {
+        @apply mx-auto max-w-4xl flex items-center justify-between gap-2;
+
+        .nav-to-home {
+          @apply hover:bg-background! bg-background/70! rounded-xl!;
+        }
+
+        .flex_1 {
+          @apply flex gap-2 items-center;
+
+          p {
+            @apply flex flex-col;
+
+            .page-title {
+              @apply font-extrabold text-lg;
+            }
+
+            .owner {
+              @apply text-sm text-foreground/70;
+            }
+          }
+        }
+
+        .flex_2 {
+          @apply flex items-center gap-1;
+
+          .logout__btn {
+            @apply cursor-pointer p-1! hover:bg-background! bg-background/50! rounded;
+          }
+        }
+      }
+    }
+
+
+    .admin-page {
+      @apply mx-auto p-3 max-w-4xl min-h-screen;
+
+      #tabs {
+        .tabs-list {
+          @apply bg-background! mb-3 flex gap-2;
+
+          .tabs-trigger {
+            @apply flex bg-muted items-center gap-1 p-4! rounded-lg! data-[state=active]:bg-primary! data-[state=active]:text-white! dark:data-[state=active]:text-foreground! hover:data-[state=active]:text-white! dark:hover:data-[state=active]:text-foreground! cursor-pointer;
+          }
+        }
+      }
+
+      .tab-section {
+        .add-new-btn {
+          @apply w-full transition-all duration-500 border-dashed! border-muted! border-2! p-6 cursor-pointer text-foreground/60 text-xl tracking-wider;
+  
+          &:hover {
+            @apply bg-background! border-primary/80! text-primary! scale-103;
+          }
+  
+          &:active {
+            @apply translate-y-1!;
+          }
+  
+          span {
+            @apply text-2xl;
+          }
+        }
+      }
+
+      .card-actions {
+        @apply flex gap-0.5 self-start;
+
+        button {
+          @apply transition-all duration-500 cursor-pointer p-2;
+
+          &:hover {
+            @apply active:translate-y-0.5;
+          }
+        }
+
+        .action-edit,
+        .action-del {
+          @apply size-4;
+        }
+
+        .action-del {
+          @apply text-destructive;
+        }
+      }
+
+      #projects-list {
+        @apply flex flex-col gap-4;
+
+        .projects-list {
+          @apply flex flex-col gap-3;
+
+          .project-list-card_admin {
+            @apply transition-all duration-500 flex gap-2 border border-muted rounded-xl p-6 items-center;
+
+            &:hover {
+              @apply shadow-md dark:shadow-2xl! -translate-y-0.5;
+            }
+
+            .prev_img {
+              @apply max-w-25!;
+              img {
+                @apply w-full aspect-square object-cover rounded;
+              }
+            }
+
+            .list-card-body {
+              @apply flex-1 flex flex-col gap-2;
+
+              h2 {
+                @apply flex items-center gap-2 font-extrabold text-2xl;
+              }
+
+              p {
+                @apply text-foreground/75 dark:text-foreground/65 text-sm;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
 
 
@@ -790,7 +919,7 @@
 
 /* Looks good #2 */
 /* T3 Chat theme */
-
+/*
 :root {
   --background: oklch(0.9754 0.0084 325.6414);
   --foreground: oklch(0.3257 0.1161 325.0372);
@@ -898,6 +1027,7 @@
   --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.10), 0 8px 10px -1px hsl(0 0% 0% / 0.10);
   --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
 }
+*/
 
 
 
@@ -1348,7 +1478,7 @@
 
 /* Looks Good #1 */
 /* Amethyst haze Theme */
-/* 
+
 :root {
   --background: oklch(0.9777 0.0041 301.4256);
   --foreground: oklch(0.3651 0.0325 287.0807);
@@ -1456,7 +1586,7 @@
   --shadow-xl: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 8px 10px 0px hsl(0 0% 0% / 0.06);
   --shadow-2xl: 1px 2px 5px 1px hsl(0 0% 0% / 0.15);
 }
-*/
+
 
 ::view-transition-old(root), ::view-transition-new(root) {
   animation: none;
