@@ -720,7 +720,7 @@
           @apply bg-background! mb-3 flex gap-2;
 
           .tabs-trigger {
-            @apply flex bg-muted items-center gap-1 p-4! rounded-lg! data-active:bg-primary! data-active:text-white! dark:data-active:text-foreground! hover:data-active:text-white! dark:hover:data-active:text-foreground! cursor-pointer;
+            @apply flex bg-muted items-center gap-1 p-4! rounded-lg! data-[state=active]:bg-primary! data-[state=active]:text-white! dark:data-[state=active]:text-foreground! hover:data-[state=active]:text-white! dark:hover:data-[state=active]:text-foreground! cursor-pointer;
           }
         }
       }
